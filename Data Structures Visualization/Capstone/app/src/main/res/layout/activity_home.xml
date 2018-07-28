@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mitchelldennen.datastructurevisualization.HomeActivity">
+
+    <RadioButton
+        android:id="@+id/arrayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Array"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/linkedListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Linked List"
+        app:layout_constraintStart_toStartOf="@+id/arrayButton"
+        app:layout_constraintTop_toBottomOf="@+id/arrayButton" />
+
+    <RadioButton
+        android:id="@+id/stackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stack"
+        app:layout_constraintStart_toStartOf="@+id/linkedListButton"
+        app:layout_constraintTop_toBottomOf="@+id/linkedListButton" />
+
+    <RadioButton
+        android:id="@+id/queueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Queue"
+        app:layout_constraintStart_toStartOf="@+id/stackButton"
+        app:layout_constraintTop_toBottomOf="@+id/stackButton" />
+
+    <RadioButton
+        android:id="@+id/hashButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hash"
+        app:layout_constraintStart_toStartOf="@+id/queueButton"
+        app:layout_constraintTop_toBottomOf="@+id/queueButton" />
+
+    <RadioButton
+        android:id="@+id/treeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tree"
+        app:layout_constraintStart_toStartOf="@+id/hashButton"
+        app:layout_constraintTop_toBottomOf="@+id/hashButton" />
+
+    <RadioButton
+        android:id="@+id/graphButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Graph"
+        app:layout_constraintStart_toStartOf="@+id/treeButton"
+        app:layout_constraintTop_toBottomOf="@+id/treeButton" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="106dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="16dp"
+        android:text="Start Animation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stackButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/compareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="Compare Data Structures"
+        app:layout_constraintStart_toStartOf="@+id/startButton"
+        app:layout_constraintTop_toTopOf="@+id/startButton" />
+
+</android.support.constraint.ConstraintLayout>

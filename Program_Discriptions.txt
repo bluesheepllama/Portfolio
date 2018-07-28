@@ -1,6 +1,6 @@
 Solor System Project:
 
-keys:
+controlls:
 's' will change from flying camera to shperical camera
 'S' wil change from spherical camera to flying camera
 in flying camera:
