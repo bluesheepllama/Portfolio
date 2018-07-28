@@ -1,16 +1,15 @@
-Solor System Project:
+Data Structure Visualization:
 
-controlls:
-'s' will change from flying camera to shperical camera
-'S' wil change from spherical camera to flying camera
-in flying camera:
-'f' wil fly forward
-'b' will fly back
-'t' will fly up
-'h' will fly down
-'9' will fly left
-'0' will fly down
-'j' pan left
-'k' pan right
-'o' pan up
-'l' pan down
+   An Android application programed in Java used for learning purposes. There are two main functions to this app:
+   The first one is to view short animations that show how certain algorithms effect data structures. The current data structures it supports are arrays, linked lists, stacks, queues, hashes, trees, and graphs. The animations, presented as of now show the insertion of data in order if applicable. There is also an animation that shows how to traverse a graph in the cheapest order. 
+   The second functionality of the application is to compare time complexities in nanoseconds for sorting, searching, inserting, and deleting for each data structure. When non-applicable, I transfer the data to a List, perform the intended algorithm, and transfer the data back to the correct data structure.
+
+
+Infected Mushroom Game:
+
+   A 2D platformer made in Unity, programmed in C#. The music and style of this game is taken from and inspired by the band infected mushroom. The goal is to reach the spray can with at least one of three lives, and before the song ends. This was a team based project. The parts I was in charge of was level design and UI.
+
+
+Solar System Project:
+
+   A model of the solar system programmed in C++ with the openGL Framework. This project has 2 modes. One mode for viewing purposes in which the distances and sizes of the planets are on a strange scaling more for user friendliness than exactness. The second mode is for accuracy. The size, distances, and orbits are accurately scaled down to get an faithful depiction of our solar system. This mode is not practical for viewing.

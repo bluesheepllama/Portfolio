@@ -1,0 +1,16 @@
+Solor System Project:
+
+controls:
+'s' will change from flying camera to spherical camera
+'S' will change from spherical camera to flying camera
+in flying camera:
+'f' will fly forward
+'b' will fly back
+'t' will fly up
+'h' will fly down
+'9' will fly left
+'0' will fly down
+'j' pan left
+'k' pan right
+'o' pan up
+'l' pan down

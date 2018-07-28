@@ -1,0 +1,9 @@
+Infected Mushroom Game:
+
+controls:
+"wasd" for movement
+'e' to attack
+"space" to jump
+"esc" to pause
+
+runnable file for mac OS in this folder called "infected_mushroom_game.app"
