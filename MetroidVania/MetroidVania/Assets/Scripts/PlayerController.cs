@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour {
 	private Weapon controlledWeapon;
 	private GroundDetector groundDetector;
 	private GrappleHook grappleHook;
-
 	public float normalGravity;
 	//public float fallingGravity = 10f;
 
@@ -36,11 +35,13 @@ public class PlayerController : MonoBehaviour {
 
 	private float normalDrag = 0.2f;
 	private float stopDrag = 20f;
+	private Vector2 rbStopVel;
 
 	public int maxMissileCount = 5;
 	public int missileCount = 5;
 	public float currentScale;
 	public int weaponIndex;
+	public float fireTimer;
 
 	public void Awake() {
 		controlledMover = GetComponent<Mover> ();
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 		grappleHook = GetComponent<GrappleHook> ();
 		shrinkEnabled = false;
 		normalGravity = controlledRigidbody.gravityScale;
+		rbStopVel = new Vector2 (0f, controlledRigidbody.velocity.y);
 	}
 
 	
@@ -63,8 +65,7 @@ public class PlayerController : MonoBehaviour {
 		controlledAnimator.SetFloat ("YVelocity", controlledRigidbody.velocity.y);
 
 		currentScale = Mathf.Abs(transform.localScale.x);
-
-
+		fireTimer += Time.deltaTime;
 		/*if (!controlledAnimator ) {
 			controlledAnimator.SetBool ("Walking", false);
 			controlledAnimator.SetFloat ("YVelocity", controlledRigidbody.velocity.y);
@@ -82,7 +83,8 @@ public class PlayerController : MonoBehaviour {
 		//move right
 		//Debug.Log((string)Input.inputString);
 		//detectPressedKeyOrButton ();
-		if (Input.GetKey (KeyCode.D) && Input.anyKeyDown == false) {
+
+		if (Input.GetKey (KeyCode.D)) {// && Input.anyKeyDown == false) {
 			controlledAnimator.SetBool ("IsWalking", true);
 			if (controlledRigidbody.velocity.y < 0f || controlledRigidbody.velocity.y > 0f) {//				controlledAnimator.SetFloat ("YVelocity", controlledRigidbody.velocity.y);
 				controlledAnimator.SetBool ("IsWalking", false);
@@ -110,7 +112,17 @@ public class PlayerController : MonoBehaviour {
 					controlledMover.AccelerateInDirection (new Vector2 (1f, 0f));
 			}
 		}
+		if (Input.GetKeyUp (KeyCode.D)) { // maybe ||
+			if (groundDetector.isOnGround && !CanWallClimb()) {// && controlledGround.IsOnGroundRayCast()) {
+				//stopDrag = 100;
+				controlledRigidbody.velocity = rbStopVel;
+
+				controlledRigidbody.drag = stopDrag;
+				Debug.Log ("getkeyup D");
+			}
+		}
 		//move left
+
 		if(Input.GetKey( KeyCode.A)) {
 			controlledAnimator.SetBool ("IsWalking", true);
 			if (controlledRigidbody.velocity.y < 0f || controlledRigidbody.velocity.y > 0f) {//
@@ -137,11 +149,23 @@ public class PlayerController : MonoBehaviour {
 				controlledMover.AccelerateInDirection (new Vector2 (-1f, 0f));
 			}
 		}
+		if (Input.GetKeyUp (KeyCode.A)) {
+			
+			if (groundDetector.isOnGround && !CanWallClimb()) {// && controlledGround.IsOnGroundRayCast()) {
+				//stopDrag = 100;
+				controlledRigidbody.velocity = rbStopVel;
+
+				controlledRigidbody.drag = stopDrag;
+				Debug.Log ("getkeyup A");
+
+			}
+
+		}
 
 		//wall cilimb
 		if(Input.GetKey(KeyCode.W) && haveWallClimb) {
 			
-			controlledRigidbody.drag = normalDrag;
+		//controlledRigidbody.drag = normalDrag;
 		/*if (!controlledAnimator) {
 				controlledAnimator.SetBool ("Walking", true);
 			}*/
@@ -150,13 +174,14 @@ public class PlayerController : MonoBehaviour {
 				//controlledRigidbody.drag = stopDrag;
 		}
 			if (CanWallClimb() == true) { //walks up slopes
+				controlledRigidbody.drag = normalDrag;
 				controlledRigidbody.gravityScale = 0;
 				controlledMover.AccelerateInDirection (new Vector2 (1f * transform.localScale.x, 1f));
 		}
 	}
 		//running
 
-		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+		if (Input.GetKeyDown (KeyCode.Tab)) {
 			controlledMover.maximumSpeed = 30f;
 		}
 
@@ -165,56 +190,64 @@ public class PlayerController : MonoBehaviour {
 		//float jumpIncrement = 0f;
 
 		if(Input.GetKeyDown(KeyCode.Space)) { 
-			//incriment number from 1 to 10 at 10, jump multiplier = 1
-			//jumpIncrement+=1;
-			//jumpIncrement = Time.deltaTime;
-			//controlledJumper.jumpMultiplier = .5f;
-
-			/*if (jumpIncrement >= .1f) {
-					controlledJumper.jumpMultiplier = 1f;
-				}*/
 			controlledRigidbody.drag = normalDrag;
-
 			controlledJumper.Jump ();
-
-			//double jump
-			/*
-			if (haveDoubleJump ) {
-				controlledJumper.Jump ();
-
-			}*/
-			//Debug.Log (controlledJumper.doublecount);
 			if (controlledJumper.doublecount > 1) {
 				controlledJumper.doublecount = 0;
 			}
+			/*if (groundDetector.isOnGround) {// && controlledGround.IsOnGroundRayCast()) {
+				stopDrag = 100;
+				controlledRigidbody.drag = stopDrag;
+			}*/
+
 				
 		}
+		/*if (Input.GetKey (KeyCode.Space)) { 
+			if (groundDetector.isOnGround && controlledGround.IsOnGroundRayCast ()) {
+				stopDrag = 100;
+				controlledRigidbody.drag = stopDrag;
+			} else {
+				controlledRigidbody.drag = normalDrag;
 
+			}
 
-		//not really working myabe do this code in jumper 
-		/*if (Input.GetKeyUp (KeyCode.Space) && jumpIncrement <= .6f) {
-			controlledJumper.jumpMultiplier = .5f;
-		}
-		controlledJumper.jumpMultiplier = 1f;
+		}*/
+			
 
-		//if get key up quicker than 1 sec than change jump multiplier?
-		jumpIncrement = 0f;*/
 
 		//shrink
-		if(Input.GetKeyDown(KeyCode.S)) {
+		if(Input.GetKeyDown(KeyCode.X)) {
 			if (shrinkEnabled) {
 				Shrink ();
 			}
 		}
+
+
+		//shift for missiles, back to shot
+
 		//Change weapons
+		Color alpha100 = new Color(255,255,255);
+		Color alpha20 = new Color(255,255,255);
+		alpha100.a = 1f;
+		alpha20.a = .2f;
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {//change to 1-9
 			controlledWeapon.WeaponCheck (0);
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {//change to 1-9
+
+
+		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Alpha2)) {//change to 1-9
 			if (haveMissle && missileCount > 0) {
-				controlledWeapon.WeaponCheck (1);
+				
+				if(controlledWeapon.currentWeaponIndex != 1)
+					controlledWeapon.WeaponCheck (1);
 			}
 		}
+		if (controlledWeapon.currentWeaponIndex == 1)
+			uiController.missileSprite.color = alpha100;
+		else 
+			uiController.missileSprite.color = alpha20;
+
+
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {//change to 1-9
 			if (haveWebShot) {
 				
@@ -260,21 +293,41 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
+		if (Input.anyKey == true && !(Input.GetKey (KeyCode.D)) && !(Input.GetKey (KeyCode.A)) && !(Input.GetKey (KeyCode.W))&& !(Input.GetKeyDown (KeyCode.Space))) {
+			if (groundDetector.isOnGround && !(CanWallClimb ())) { //!(controlledGround.IsOnGroundRayCast())) {
+				//stopDrag = 100;
+				controlledRigidbody.velocity = rbStopVel;
+				//if canwallclimb then apply normal drag
+				Debug.Log ("anykey == true");
+				//controlledRigidbody.drag = stopDrag;
+				if (CanWallClimb())//this is where it needs to happen
+					controlledRigidbody.drag = 0;
+				Debug.Log ("anykey == true, apply normal drag");
+	
+				
+			}
+		}
 
 		if (Input.anyKey == false) {
+			//Debug.Log ("no key pressed, : velocity y: " + controlledRigidbody.velocity.y);
 			controlledAnimator.SetBool ("IsWalking", false);
 			controlledAnimator.SetBool ("IsIdle", true);
 
 			controlledMover.AccelerateInDirection (new Vector2(0f,0f));
-			if (controlledGround.isOnGround == true) {
-				controlledRigidbody.drag = stopDrag;
+			if (controlledGround.isOnGround == true && (controlledRigidbody.velocity.y > -.25)) {//fix
+				//Debug.Log ("apply stop drag");
+
+				controlledRigidbody.velocity = rbStopVel;//stopdrag
 			} else {
 				controlledRigidbody.drag = normalDrag;
 
 			}
 			controlledRigidbody.gravityScale = 4.4f;
 			if (groundDetector.isOnSlopedGround == true ) { //walks up slopes
-				controlledRigidbody.drag = 100f;
+				Debug.Log("stopdrag applied");
+				//controlledRigidbody.drag = 100f;
+				controlledRigidbody.velocity = rbStopVel;
+
 			}
 				//controlledRigidbody.gravityScale = 4.4f;
 			
@@ -288,11 +341,13 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//fixes bug
+		/*
 		if (Input.GetKey (KeyCode.E) || Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.Z)
 			|| Input.GetKey (KeyCode.C) || Input.GetKey (KeyCode.S)) {
 			controlledRigidbody.drag = 100f;
 
 		}
+		*/
 	}
 	/*
 	private void OnTriggerEnter2D(Collider2D collider) {
@@ -309,18 +364,37 @@ public class PlayerController : MonoBehaviour {
 	public float shrinkValue = .5f;
 	public void Shrink() {
 		//if(shrinkEnabled) {
-			if (isShrunk == false) {
+	if (isShrunk == false) {
+			Vector2 temp;
 				//takes more damage
-				Vector2 temp = new Vector2 (shrinkValue, shrinkValue);
+			if(transform.localScale.x <0 ) {
+				//shrinkValue = -.5f;
+				temp = new Vector2 (-.5f, .5f);
+			} else {
+				//shrinkValue = .5f;
+				temp = new Vector2 (.5f, .5f);
+
+			}
+			//Vector2 temp = new Vector2 (shrinkValue, shrinkValue);
 			controlledRigidbody.gravityScale = 2.2f; //use a defined value
 			controlledJumper.jumpImpulse -= 6;
-				transform.localScale = temp;
-				isShrunk = true;
+			transform.localScale = temp;
+			isShrunk = true;
+		} else {
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Vector2 temp;
+			if(transform.localScale.x < 0 ) {
+			 	temp = new Vector2 (-1.0f, 1.0f);
+				Debug.Log ("unshrink negative");
 			} else {
+				 temp = new Vector2 (1.0f, 1.0f);
+				Debug.Log ("unshrink positive");
+
+			}
 				//change to different function where 'w' makes bigger
-				Vector2 temp = new Vector2 (1.0f, 1.0f);
-				transform.localScale = temp;
-				isShrunk = false;
+			//temp = new Vector2 (1.0f, 1.0f);
+			transform.localScale = temp;
+			isShrunk = false;
 			controlledRigidbody.gravityScale = 4.4f;
 			controlledJumper.jumpImpulse += 6;
 
@@ -343,6 +417,8 @@ public class PlayerController : MonoBehaviour {
 			return Physics2D.Raycast (transform.position, Vector2.right, rayCastDistance,rayCastLayerMask);
 			}
 	}
+
+
 
 
 	//get rig of~~~~~~~~~~~~~

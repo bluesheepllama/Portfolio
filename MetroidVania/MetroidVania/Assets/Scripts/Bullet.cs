@@ -29,7 +29,9 @@ public class Bullet : MonoBehaviour {
 			//Debug.Log ("shrink bullets" );
 			gameObject.transform.localScale = tempTransform;
 		}
-			
+		if(playerController.isShrunk == true) {
+			speed = 300;
+		}
 		rb.velocity = transform.right * transform.localScale.x * speed;
 		//accounts for shooting in all directions
 		if (transform.localScale.x > 0) {
@@ -39,23 +41,33 @@ public class Bullet : MonoBehaviour {
 			if (Input.GetKey (KeyCode.E)) { //up right
 				rb.velocity = (transform.up + transform.right) * transform.localScale.x * speed;
 			}
+			if (Input.GetKey (KeyCode.D) && Input.GetKey (KeyCode.W)) { //up right
+				rb.velocity = (transform.up + transform.right) * transform.localScale.x * speed;
+			}
 			if (Input.GetKey (KeyCode.C)) { // down right
 				rb.velocity = (transform.right - transform.up) * transform.localScale.x * speed;
 			}
 			if (Input.GetKey (KeyCode.Q)) { // upp left
 				rb.velocity = (transform.up - transform.right) * transform.localScale.x * speed;
 			}
+			if (Input.GetKey (KeyCode.A) && Input.GetKey (KeyCode.W)) { // upp left
+				rb.velocity = (transform.up - transform.right) * transform.localScale.x * speed;
+			}
 			if (Input.GetKey (KeyCode.Z)) { //down left
 				rb.velocity = (-transform.right - transform.up) * transform.localScale.x * speed;// not sure what it is
 			}
-			if (Input.GetKey (KeyCode.X)) { //down
+			if (Input.GetKey (KeyCode.S)) { //down
 				rb.velocity = (-transform.up - transform.up) * transform.localScale.x * speed;// not sure what it is
 			}
+
 		} else if(transform.localScale.x < 0){ // facing the other way
 			if (Input.GetKey (KeyCode.W)) {
 				rb.velocity = -transform.up * transform.localScale.x * speed;
 			}
 			if (Input.GetKey (KeyCode.E)) { // up right
+				rb.velocity = -(transform.up + transform.right) * transform.localScale.x * speed;
+			}
+			if (Input.GetKey (KeyCode.D) && Input.GetKey (KeyCode.W)) { // up right
 				rb.velocity = -(transform.up + transform.right) * transform.localScale.x * speed;
 			}
 			if (Input.GetKey (KeyCode.C)) { // down right
@@ -64,10 +76,13 @@ public class Bullet : MonoBehaviour {
 			if (Input.GetKey (KeyCode.Q)) { // up left
 				rb.velocity = -(transform.up - transform.right) * transform.localScale.x * speed;
 			}
+			if (Input.GetKey (KeyCode.A) && Input.GetKey (KeyCode.W)) { // up left
+				rb.velocity = -(transform.up - transform.right) * transform.localScale.x * speed;
+			}
 			if (Input.GetKey (KeyCode.Z)) { // down left
 				rb.velocity = -(-transform.right - transform.up) * transform.localScale.x * speed;// not sure what it is
 			}
-			if (Input.GetKey (KeyCode.X)) { //down
+			if (Input.GetKey (KeyCode.S)) { //down
 				rb.velocity = -(-transform.up - transform.up) * transform.localScale.x * speed;// not sure what it is
 			}
 		}
@@ -107,7 +122,7 @@ public class Bullet : MonoBehaviour {
 			}
 			TakeDamage (collider);//maybe extra
 
-			Debug.Log (impactEffect);
+			//Debug.Log (impactEffect);
 			if(impactEffect) {
 				GameObject impact;
 				Debug.Log ("impact effect");
@@ -126,13 +141,11 @@ public class Bullet : MonoBehaviour {
 
 			//if is shrunk then do less damage based on a multiplier
 			if (playerController.isShrunk == true) {
-				speed = 100;
-				Debug.Log (speed);
-				destructable.TakeDamage (damage / 3f);
+				destructable.TakeDamage (damage / 2.5f);
 				Destroy (gameObject);
 
 			} else {
-				Debug.Log("take damage in bullet");
+				//Debug.Log("take damage in bullet");
 				destructable.TakeDamage (damage);
 				Destroy (gameObject);
 
@@ -148,7 +161,7 @@ public class Bullet : MonoBehaviour {
 				if (playerController.isShrunk == true) {
 					if (destructable != null) {
 						Debug.Log ("grenade shrunk");
-						destructable.TakeDamage (damage / 3f);
+						destructable.TakeDamage (damage / 2.5f);
 
 					}
 

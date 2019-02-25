@@ -11,6 +11,7 @@ public class InstantiateEnemies : MonoBehaviour {
 	public List<Vector3> scorpionPositions;
 	public List<Vector3> rhinoBeetlePositions;
 	public List<Vector3> caterpillarPositions;
+	public Vector3 boss1Position;
 
 
 
@@ -26,6 +27,7 @@ public class InstantiateEnemies : MonoBehaviour {
 	public GameObject scorpionEnemy;
 	public GameObject rhinoBeetleEnemy;
 	public GameObject caterpillarEnemy;
+	public GameObject boss1Enemy;
 
 
 	public GameObject instantiatedEnemy;
@@ -40,6 +42,7 @@ public class InstantiateEnemies : MonoBehaviour {
 	public RhinoBeetleController rhinoBeetleController;
 	public CaterpillarEnemyController caterpillarController;
 
+	public Boss1 boss1Controller;
 
 
 	//snails values
@@ -73,12 +76,12 @@ public class InstantiateEnemies : MonoBehaviour {
 	private int caterpillarNumberIndex;
 	public int maxcaterpillars = 0;
 
-	private float coolDown = -300;
-	private float timer;
+	private float coolDown = 300;
+	private float timer = 300;
 	private bool isTriggered = false;
 
 	void Update () {
-		timer = Time.time;
+		timer += Time.deltaTime;//change to time.deltatime and account for the first trigger
 	}
 
 	void Start() {
@@ -87,13 +90,17 @@ public class InstantiateEnemies : MonoBehaviour {
 	//game object and number for every enemy
 	// only problem is if they dont kill the enemies they will trigger more
 	private void OnTriggerEnter2D(Collider2D collider) {
-
-		if(timer - coolDown > 300) { 
+		//Debug.Log ("instantiate enemies trigger");
+		//Debug.Log ("timer: "+timer);
+		if(timer  > coolDown) { 
+			//timer = 0; // this was bug enemies were causing this
 			isTriggered = true;
-			coolDown = Time.time;
-			Debug.Log ("enemy trigger");
+			//coolDown = Time.time;//~~~~~~~
+			//Debug.Log ("enemy trigger: timer > cooldown");
 			//if(coolDown )
 			if (collider.tag == "Player") {
+				timer = 0; // moved to here to fix 
+
 
 				if (snailController && maxSnails > 0) {
 					for (snailNumberIndex = 0; snailNumberIndex < maxSnails; snailNumberIndex++) {
@@ -113,8 +120,9 @@ public class InstantiateEnemies : MonoBehaviour {
 					}
 				}
 
-				flyController.target = collider.transform;
 				if (flyController && maxFlies > 0) {
+					flyController.target = collider.transform;
+
 					for (flyNumberIndex = 0; flyNumberIndex < maxFlies; flyNumberIndex++) {
 						//flyController.maxSeeDistance = flySeeDistance;
 						instantiatedEnemy = (GameObject)Instantiate (flyEnemy, flyPositions [flyNumberIndex], Quaternion.identity);
@@ -123,38 +131,64 @@ public class InstantiateEnemies : MonoBehaviour {
 					//		GameObject bulletObject = Instantiate (bulletPrefab[currentWeaponIndex], firePoint.position, firePoint.rotation);
 
 				}
-				//notTheBeesController.target = collider.transform;
 				if (notTheBeesController && maxBees > 0) {
+					//notTheBeesController.target = collider.transform;
+					Debug.Log ("instatiate bees :" + maxBees);
+
 					for (beeNumberIndex = 0; beeNumberIndex < maxBees; beeNumberIndex++) {
+						Debug.Log ("instatiate bees :" + beeNumberIndex);
+
 						notTheBeesController.patrolOffset = beeoffset [beeNumberIndex];
 						instantiatedEnemy = (GameObject)Instantiate (beeEnemy, beePositions [beeNumberIndex], Quaternion.identity);
 						Destroy (instantiatedEnemy, 300);
 					}
 				}
-				//scorpionController.target = collider.transform;
 				if (scorpionController && maxScorpions > 0) {
+					scorpionController.target = collider.transform;
+					Debug.Log ("instatiate scorpion max :" + maxScorpions);
+
 					for (scorpionNumberIndex = 0; scorpionNumberIndex < maxScorpions; scorpionNumberIndex++) {
+						Debug.Log ("instatiate scorpion :" + scorpionNumberIndex);
 						scorpionController.patrolOffset = scorpionoffset [scorpionNumberIndex];
 						instantiatedEnemy = (GameObject)Instantiate (scorpionEnemy, scorpionPositions [scorpionNumberIndex], Quaternion.identity);
 						Destroy (instantiatedEnemy, 300);
 					}
 				}
-				//rhinoBeetleController.target = collider.transform;
 				if (rhinoBeetleController && maxRhinoBeetles > 0) {
+					rhinoBeetleController.target = collider.transform;
+					Debug.Log ("instatiate rhino max :" + maxRhinoBeetles);
+
 					for (rhinoBeetleNumberIndex = 0; rhinoBeetleNumberIndex < maxRhinoBeetles; rhinoBeetleNumberIndex++) {
+						Debug.Log ("instatiate rhino :" + rhinoBeetleNumberIndex);
+
 						rhinoBeetleController.patrolOffset = rhinoBettleoffset [rhinoBeetleNumberIndex];
 						instantiatedEnemy = (GameObject)Instantiate (rhinoBeetleEnemy, rhinoBeetlePositions [rhinoBeetleNumberIndex], Quaternion.identity);
 						Destroy (instantiatedEnemy, 300);
 					}
 				}
-				//caterpillarController.target = collider.transform;
 				if (caterpillarController && maxcaterpillars > 0) {
+					caterpillarController.target = collider.transform;
+					Debug.Log ("instatiate catarpillar max :" + maxcaterpillars);
+
 					for (caterpillarNumberIndex = 0; caterpillarNumberIndex < maxcaterpillars; caterpillarNumberIndex++) {
+						Debug.Log ("instatiate catarpillar :" + caterpillarNumberIndex);
+
 						caterpillarController.patrolOffset = caterpillaroffset [caterpillarNumberIndex];
 						instantiatedEnemy = (GameObject)Instantiate (caterpillarEnemy, caterpillarPositions [caterpillarNumberIndex], Quaternion.identity);
 						Destroy (instantiatedEnemy, 300);
 					}
 				}
+				if (boss1Controller) {
+					//boss1.target = collider.transform;
+					Debug.Log ("instatiate boss");
+
+					//for (caterpillarNumberIndex = 0; caterpillarNumberIndex < maxcaterpillars; caterpillarNumberIndex++) {
+						//Debug.Log ("instatiate boss :" + caterpillarNumberIndex);
+
+					//boss1Controller.patrolOffset = caterpillaroffset [caterpillarNumberIndex];
+					instantiatedEnemy = (GameObject)Instantiate (boss1Enemy, boss1Position, Quaternion.identity);
+					Destroy (instantiatedEnemy, 300);
+					}
 
 			}
 		}

@@ -27,8 +27,7 @@ GameObject:
   - component: {fileID: 114311245307316422}
   - component: {fileID: 61446027586890460}
   - component: {fileID: 58881308022438404}
-  - component: {fileID: 114530102465169150}
-  - component: {fileID: 114982257718363944}
+  - component: {fileID: 114176293600776522}
   m_Layer: 0
   m_Name: Scorpion enemy
   m_TagString: Enemy
@@ -176,6 +175,40 @@ MonoBehaviour:
     type: 2}
   missileAmmoPrefab: {fileID: 0}
   isVenomDamage: 0
+--- !u!114 &114176293600776522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174411519803600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6c0e4040192486082a3ca9385b7ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopDistance: 3.5
+  currentMoveToPoint: {x: 0, y: 0}
+  hitForce: 0
+  isFlying: 0
+  flyingOffset: 10
+  controlledMover: {fileID: 0}
+  count: 0
+  patrolOffset: 20
+  target: {fileID: 4976318357173938, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
+  animator: {fileID: 0}
+  maxSeeDistance: 10
+  offset: 0
+  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
+    type: 2}
+  fireRate: 2
+  bulletSpeed: 20
+  bulletSpawnPoint: {fileID: 4485459415366962}
+  turret: {fileID: 4485459415366962}
+  scorpioTransform: {fileID: 4820894495860204}
+  patrolPoints:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
 --- !u!114 &114311245307316422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,44 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultRightFacing: 1
   flip: 0
---- !u!114 &114530102465169150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174411519803600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915a223627add45e38d9a0b1c74c733f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopDistance: 5
-  currentMoveToPoint: {x: 0, y: 0}
-  hitForce: 500
-  isFlying: 1
-  flyingOffset: 0
-  controlledMover: {fileID: 0}
-  count: 0
-  patrolOffset: 10
-  target: {fileID: 0}
-  animator: {fileID: 0}
-  maxSeeDistance: 50
-  offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: ebdbd63816e1845f59fd929a7bed434c,
-    type: 2}
-  fireRate: 1
-  bulletSpeed: 20
-  bulletSpawnPoint: {fileID: 4485459415366962}
-  turret: {fileID: 4485459415366962}
-  enemyTransform: {fileID: 4820894495860204}
-  intantiatedEnemiesPrefab: {fileID: 1755817929067358, guid: eade8d50e96c34eaea3db0fb99bb6627,
-    type: 2}
-  patrolPoints:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  followPlayer: 1
 --- !u!114 &114681139630282554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,41 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
---- !u!114 &114982257718363944
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174411519803600}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b91cc14e254498b8156e47bf170e3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopDistance: 3.5
-  currentMoveToPoint: {x: 0, y: 0}
-  hitForce: 10000
-  isFlying: 0
-  flyingOffset: 10
-  controlledMover: {fileID: 0}
-  count: 0
-  patrolOffset: 20
-  target: {fileID: 0}
-  animator: {fileID: 0}
-  maxSeeDistance: 50
-  offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
-    type: 2}
-  fireRate: 2
-  bulletSpeed: 20
-  bulletSpawnPoint: {fileID: 4485459415366962}
-  turret: {fileID: 4485459415366962}
-  enemyTransform: {fileID: 4820894495860204}
-  patrolPoints:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  followPlayer: 1
 --- !u!212 &212732832355023134
 SpriteRenderer:
   m_ObjectHideFlags: 1

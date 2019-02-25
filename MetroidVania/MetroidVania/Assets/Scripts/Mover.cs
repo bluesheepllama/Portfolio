@@ -41,6 +41,7 @@ public class Mover : MonoBehaviour {
 		} 
 
 	public void AccelerateInDirection (Vector2 direction) {
+		
 		Rigidbody2D rb = GetComponent<Rigidbody2D> ();
 		Vector3 newVelocity = rb.velocity +( direction * acceleration * Time.deltaTime * speedMultiplier);//*speed multiplier?
 		//Debug.Log ("velocity " + newVelocity);

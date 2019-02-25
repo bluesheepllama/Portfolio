@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 61072863847559394}
   - component: {fileID: 58154316451029494}
   - component: {fileID: 114285671095035846}
-  - component: {fileID: 114275349448368574}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Enemy
@@ -58,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284703846132272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -234.3, y: -66.3, z: 9.8930435}
+  m_LocalPosition: {x: -232.3, y: -62.3, z: 9.8930435}
   m_LocalScale: {x: 2.903109, y: 2.9031084, z: 2.4192572}
   m_Children:
   - {fileID: 4780503355835832}
@@ -129,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.01, y: 4.21}
+    oldSize: {x: 7.51, y: 4.9}
     newSize: {x: 4.94, y: 3.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -150,47 +149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1284703846132272}
-  maximumHitpoints: 40
-  hitPoints: 40
+  maximumHitpoints: 50
+  hitPoints: 50
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 0}
+  keyPrefab: {fileID: 1733296799385722, guid: f8cd59fe745b44a00beda0de4cf21710, type: 2}
   isVenomDamage: 0
---- !u!114 &114275349448368574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284703846132272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b91cc14e254498b8156e47bf170e3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopDistance: 3.5
-  currentMoveToPoint: {x: 0, y: 0}
-  hitForce: 10000
-  isFlying: 0
-  flyingOffset: 10
-  controlledMover: {fileID: 0}
-  count: 0
-  patrolOffset: 20
-  target: {fileID: 0}
-  animator: {fileID: 0}
-  maxSeeDistance: 50
-  offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
-    type: 2}
-  fireRate: 2
-  bulletSpeed: 20
-  bulletSpawnPoint: {fileID: 4780503355835832}
-  turret: {fileID: 4780503355835832}
-  enemyTransform: {fileID: 4488176318733504}
-  patrolPoints:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  followPlayer: 1
 --- !u!114 &114285671095035846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,12 +174,12 @@ MonoBehaviour:
   flyingOffset: 0
   controlledMover: {fileID: 0}
   count: 0
-  patrolOffset: 10
-  target: {fileID: 0}
+  patrolOffset: 4
+  target: {fileID: 4976318357173938, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
   animator: {fileID: 0}
   maxSeeDistance: 50
   offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: ebdbd63816e1845f59fd929a7bed434c,
+  bulletPreFab: {fileID: 1897826114516672, guid: 8fc06e1788661414db6e4c8c139c697a,
     type: 2}
   fireRate: 1
   bulletSpeed: 20
@@ -308,8 +273,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 21c1a25bf217d48398da21382a39ac81, type: 3}
-  m_Color: {r: 0.61764705, g: 0.0045415265, b: 0.19481558, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 12c20bb05606a4d0799db6221ee48857, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

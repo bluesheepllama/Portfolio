@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\AudioRandomizer.cs" />
      <Compile Include="Assets\Scripts\BeeEnemyController.cs" />
      <Compile Include="Assets\Scripts\BeetleShooterEnemy.cs" />
+     <Compile Include="Assets\Scripts\Blip.cs" />
      <Compile Include="Assets\Scripts\Boss1.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\BulletEnemy.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\CaterpillarEnemyController.cs" />
      <Compile Include="Assets\Scripts\CharacterData.cs" />
      <Compile Include="Assets\Scripts\DestantiateWall.cs" />
+     <Compile Include="Assets\Scripts\DestantiateWallOnDeath.cs" />
      <Compile Include="Assets\Scripts\Destructable.cs" />
      <Compile Include="Assets\Scripts\Destructor.cs" />
      <Compile Include="Assets\Scripts\EnemyParent.cs" />
@@ -77,6 +79,8 @@
      <Compile Include="Assets\Scripts\JsonCharacterSaver.cs" />
      <Compile Include="Assets\Scripts\Jumper.cs" />
      <Compile Include="Assets\Scripts\JumperEnemy.cs" />
+     <Compile Include="Assets\Scripts\KeyDestantiateWall.cs" />
+     <Compile Include="Assets\Scripts\MiniMap.cs" />
      <Compile Include="Assets\Scripts\MissleWall.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\Pickup.cs" />
@@ -87,13 +91,16 @@
      <Compile Include="Assets\Scripts\SaveGameTrigger.cs" />
      <Compile Include="Assets\Scripts\ScorpionEnemyController.cs" />
      <Compile Include="Assets\Scripts\SnailEnemyController.cs" />
+     <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\SpriteVelocityFlipper.cs" />
      <Compile Include="Assets\Scripts\TriggerInstantiateEnemyTrigger.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
+     <Compile Include="Assets\Scripts\UncoverMap.cs" />
      <Compile Include="Assets\Scripts\VenomShotPower.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\WebShotPower.cs" />
      <Compile Include="Assets\Scripts\WormEnemyController.cs" />
+     <Compile Include="Assets\Sounds\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

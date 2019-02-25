@@ -169,7 +169,7 @@ MonoBehaviour:
   controlledMover: {fileID: 0}
   count: 0
   patrolOffset: 20
-  target: {fileID: 0}
+  target: {fileID: 1289488909662396, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
   animator: {fileID: 0}
   maxSeeDistance: 30
   offset: 0

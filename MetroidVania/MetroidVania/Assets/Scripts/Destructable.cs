@@ -9,6 +9,11 @@ public class Destructable : MonoBehaviour {
 	public float hitPoints;
 	public GameObject healthPrefab;
 	public GameObject missileAmmoPrefab;
+	public GameObject keyPrefab;
+
+	public int healAmountMin = 2;
+	public int healAmountMax = 7;
+
 	private SpriteRenderer spriteRenderer;
 	private float colorChangLength = 8f;
 	private float colorChangeCounter;
@@ -17,6 +22,7 @@ public class Destructable : MonoBehaviour {
 	public bool isVenomDamage;
 	private float venomCounter;
 	private float venomLength = 2f;
+
 
 	// Use this for initialization
 	void Start () {
@@ -67,6 +73,7 @@ public class Destructable : MonoBehaviour {
 
 	public void Heal(float healAmount) {
 
+		healAmount = Random.Range (healAmountMin,healAmountMax);
 		ModifyHitPoints (healAmount);
 
 	}
@@ -82,7 +89,7 @@ public class Destructable : MonoBehaviour {
 	}
 
 	private void Die() {
-		player.SetActive (false);
+		//player.SetActive (false);
 
 		if (player.tag != "Player") {//wont work for enemies to hit player
 			float ranNum = Random.Range (-1f, 1f);
@@ -93,14 +100,18 @@ public class Destructable : MonoBehaviour {
 				Destroy (healthpre,10);
 			}
 			if(missileAmmoPrefab) {
-				Debug.Log ("spawn missile");
+				//Debug.Log ("spawn missile");
 				GameObject missilepre = Instantiate(missileAmmoPrefab, spawnPosition,player.transform.rotation) as GameObject;
 				Destroy (missilepre,10);
+			}
+			if(keyPrefab) {
+				//Debug.Log ("spawn missile");
+				GameObject keyPre = Instantiate(keyPrefab, spawnPosition,player.transform.rotation) as GameObject;
 			}
 			//Invoke ("Respawn", 50);// time to respawn
 		}
 			
-		//Destroy (gameObject);
+		Destroy (gameObject);
 
 	}
 	private void Respawn() {

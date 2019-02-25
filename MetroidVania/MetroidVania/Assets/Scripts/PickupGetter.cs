@@ -8,15 +8,23 @@ public class PickupGetter : MonoBehaviour {
 	public int checkPointcount;
 	private PlayerController pc;
 	public UIController uiController;
+	private SoundController soundController;
+
+	//public float healthPickupMin = 2;
+	//public float healthPickupMax = 7;
+
 
 	public void Awake () {//gets run before any other function(before start)
 		pickups = new List<PickupType>();
 		pc = GetComponent<PlayerController> ();
+		soundController = GetComponent<SoundController> ();
 
 	}
 
 	public void PickUp(PickupType pickupType) {
 		pickups.Add (pickupType);
+
+		//soundController.audio1.PlayOneShot(pickupSound,vol);
 
 		//
 		//New Powers
@@ -26,6 +34,8 @@ public class PickupGetter : MonoBehaviour {
 
 				pc.shrinkEnabled = true;
 				uiController.PowerUpAquire (1);
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 
 				//change shrink bool
 			}
@@ -37,8 +47,9 @@ public class PickupGetter : MonoBehaviour {
 			if (jumper && gameObject.tag == "Player") {
 				pc.haveDoubleJump = true;
 				Debug.Log ("Jump Upgrade" );
-				uiController.PowerUpAquire (0); // change to correct Ui------------------------------
-
+				uiController.PowerUpAquire (3); // change to correct Ui------------------------------
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 			}
 		}
 
@@ -52,6 +63,8 @@ public class PickupGetter : MonoBehaviour {
 
 				PC.haveMissle = true;
 				uiController.PowerUpAquire (2);
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 				//change shrink bool
 			}
 		}
@@ -63,7 +76,8 @@ public class PickupGetter : MonoBehaviour {
 
 				PC.haveWebShot = true;
 				uiController.PowerUpAquire (4);
-
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 				//change shrink bool
 			}
 		}
@@ -75,7 +89,8 @@ public class PickupGetter : MonoBehaviour {
 
 				PC.haveScatterShot = true;
 				uiController.PowerUpAquire (6);
-
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 				//change shrink bool
 			}
 		}
@@ -86,7 +101,8 @@ public class PickupGetter : MonoBehaviour {
 
 				PC.haveVenomShot = true;
 				uiController.PowerUpAquire (5);
-
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 				//change shrink bool
 			}
 		}
@@ -95,24 +111,38 @@ public class PickupGetter : MonoBehaviour {
 		if (pickupType == PickupType.HealthUpgrade) {
 			Destructable destructable = GetComponent<Destructable> ();
 			if (destructable && gameObject.tag == "Player") {
-				destructable.maximumHitpoints+= 10;//change to heal variable
+				//uiController.PowerUpAquire (5);
+
+				destructable.maximumHitpoints+= 50;//change to heal variable
 				Debug.Log ("Health Upgrade" );
 				//Destroy(gameObject);//maybe change 
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
+				uiController.PauseGame ();
+				uiController.powerUpDescription.text = "Wellness has Increased by 50";
+
 			}
 		}
 		if (pickupType == PickupType.JumpUpgrade) {
 			Jumper jumper = GetComponent<Jumper> ();
 			if (jumper && gameObject.tag == "Player") {
 				jumper.jumpImpulse += jumper.jumpUpgradeAmount;
-				Debug.Log ("Jump Upgrade" );
+				//Debug.Log ("Jump Upgrade" );
 				uiController.PowerUpAquire (0);
-
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
 				//Destroy(gameObject);//maybe change 
 			}
 		}
 		if (pickupType == PickupType.MissleUpgrade) {
 			pc.maxMissileCount += 5;
+			//uiController.PowerUpAquire (4);
+
 			Debug.Log ("Missile Upgrade" );
+			Debug.Log("PlayAudio");
+			soundController.audio1.Play();
+			uiController.PauseGame ();
+			uiController.powerUpDescription.text = "Missile Capacity Increased by 5";
 		}
 
 
@@ -123,7 +153,7 @@ public class PickupGetter : MonoBehaviour {
 			if (destructable) {
 				int healAmount = Random.Range (2,7);
 				destructable.Heal (healAmount);//change to heal variable
-				Debug.Log ("in healer" );
+				//Debug.Log ("in healer" );
 				//Destroy(gameObject);//maybe change 
 			}
 		}
@@ -146,8 +176,16 @@ public class PickupGetter : MonoBehaviour {
 			Debug.Log ("checkPoint count: " + checkPointcount);
 
 		}
-
+		if (pickupType == PickupType.Key) {
+			/*KeyDestantiateWall kDW = GetComponent<KeyDestantiateWall>();
+			kDW.DestantiateWall ();*/
+			GameObject wall = GameObject.Find ("InstantiatedPlatformKey");//.GetComponent<GameObject>();
+			if(wall) {
+				wall.SetActive (false);
+			}
+		}
 	}
+		
 
 	public int GetPickupCount(PickupType pickupType) {
 

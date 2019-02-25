@@ -15,12 +15,36 @@ public class UIController : MonoBehaviour {
 	public bool pausePressed = false;
 	public GameObject destansiateWallTriggerMsg;
 
+	//bullet icons
+	public GameObject missileUI;
+	public GameObject webUI;
+	public GameObject venomUI;
+	public GameObject grenadeUI;
+	public GameObject scatterUI;
+	public GameObject shootThrouWallsUI;
+	public GameObject grappleUI;
+
+	public Image missileSprite;
+
+
+
+
+
 	public GameObject saveUI;
 	public Button yesButton;
 	public Button noButton;
 
+	private SoundController soundController;
+	private AudioSource songSource;
+
+
+	public AudioClip songClip;
 	// Use this for initialization
 	void Start () {
+		soundController = GetComponent<SoundController> ();
+		songSource = soundController.AddAudio (songClip,true,true,.3f);
+		//aS.volume = 100F;
+		songSource.Play ();
 		//PauseUI = GameObject.FindGameObjectsWithTag("PauseUI");
 	}
 	
@@ -80,19 +104,19 @@ public class UIController : MonoBehaviour {
 			powerUpDescription.text = "High Jump: This powerup allows you to jump higher";
 			break;
 		case 1:
-			powerUpDescription.text = "Shrink: This powerup allows you to get smaller, fitting in tighter areas. Press 's' to shrink";
+			powerUpDescription.text = "Shrink: This powerup allows you to get smaller, fitting in tighter areas. Press 'x' to shrink";
 			break;
 		case 2:
-			powerUpDescription.text = "Missile: This powerup allows you to shoot missiles, dealing more damage and allowing you to break some walls. Switch between ammo types with '1-5'";
+			powerUpDescription.text = "Missile: This powerup allows you to shoot missiles, dealing more damage and allowing you to break some walls. Switch to missile with '2' or 'Left Shift";
 			break;
 		case 3:
-			powerUpDescription.text = "Higher Jump: This powerup allows you to jump even higher";
+			powerUpDescription.text = "Double Jump: This powerup allows you to Double Jump";
 			break;
 		case 4:
-			powerUpDescription.text = "";
+			powerUpDescription.text = "Missile Upgrade: This Upgrade lets you hold 10 more missiles";
 			break;
 		case 5:
-			powerUpDescription.text = "";
+			powerUpDescription.text = "Wellness Upgrade: This Upgrade Gives you 50 extra wellness";
 			break;
 		case 6:
 			powerUpDescription.text = "";

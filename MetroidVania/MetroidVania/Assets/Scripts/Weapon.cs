@@ -16,13 +16,13 @@ public class Weapon : MonoBehaviour {
 	//public Transform firePointObject;
 
 	private Color alpha;
-
+	private Rigidbody2D rb;
 
 	float chargeDamage = 0;
 	float chargeRate = 1;
 	bool charging = false;
 
-	public float fireRate = .1f;
+	private float fireRate = .25f;
 
 	private float fireTimer;
 	private float timer;
@@ -37,6 +37,7 @@ public class Weapon : MonoBehaviour {
 		alpha = chargingSprite.GetComponent<SpriteRenderer>().color;
 		alpha.a = 0f;
 		chargingSprite .GetComponent<SpriteRenderer>().color = alpha;
+		rb = GetComponent<Rigidbody2D> ();
 	}
 
 	/*
@@ -47,15 +48,15 @@ public class Weapon : MonoBehaviour {
 	 * */
 
 	void Update() {
-		fireTimer += Time.deltaTime;//~~~~~~~~~~~~~
+		//fireTimer += Time.deltaTime;//~~~~~~~~~~~~~
 
 		if (Input.GetKeyDown (KeyCode.RightAlt) && pc.isPaused == false) {//getkey for charge
 			charging = true;
 			timer = 0;
-			//if(fireTimer >= fireRate) {
+			if(pc.fireTimer >= fireRate) {
 				Shoot ();
-				fireTimer = 0;
-			//}
+				pc.fireTimer = 0;
+			}
 			alpha.a = 255f;
 			chargingSprite .GetComponent<SpriteRenderer>().color = alpha;
 
@@ -69,6 +70,8 @@ public class Weapon : MonoBehaviour {
 			Transform tempScale = firePoint;
 			if (charging == true) {
 				if (timer > .25f && timer < .5f) {
+					//rb.drag = 4.4f;
+
 					//Debug.Log ("timer .25-.5");
 					alpha.b = 213;
 					alpha.g = 213;
@@ -79,6 +82,8 @@ public class Weapon : MonoBehaviour {
 
 				}
 				if (timer > .5f && timer < .75f) {
+					//rb.drag = 4.4f;
+
 					alpha.b = 171;
 					alpha.g = 171;
 					chargingSprite.GetComponent<SpriteRenderer> ().color = alpha;
@@ -88,6 +93,8 @@ public class Weapon : MonoBehaviour {
 
 				}
 				if (timer > .75f && timer < 1f) {
+					//rb.drag = 4.4f;
+
 					alpha.b = 129;
 					alpha.g = 129;
 					chargingSprite.GetComponent<SpriteRenderer> ().color = alpha;
@@ -98,6 +105,8 @@ public class Weapon : MonoBehaviour {
 
 				}
 				if (timer > 1.25f && timer < 1.5f) {
+					//rb.drag = 4.4f;
+
 					alpha.b = 87;
 					alpha.g = 87;
 					chargingSprite.GetComponent<SpriteRenderer> ().color = alpha;
@@ -108,6 +117,8 @@ public class Weapon : MonoBehaviour {
 
 				}
 				if (timer > 1.5f && timer < 1.75f) {
+					//rb.drag = 4.4f;
+
 					alpha.b = 45;
 					alpha.g = 45;
 					chargingSprite.GetComponent<SpriteRenderer> ().color = alpha;
@@ -125,6 +136,14 @@ public class Weapon : MonoBehaviour {
 					tempScale.localScale = new Vector3 (.5f, .5f, .5f);
 					firePoint = tempScale;
 
+					/*Vector2 tempVel = new Vector2 (0f,rb.velocity.y);
+					rb.velocity = tempVel;//~~~~~~~
+					Vector2 tempVel2 = new Vector2 (1f,rb.velocity.y);
+					rb.velocity = tempVel;//~~~~~~~
+					*/
+					//rb.drag = 100f;
+					//rb.drag = 4.4f;
+					//rb.drag = 4.4f;
 
 				}
 			}
@@ -141,7 +160,7 @@ public class Weapon : MonoBehaviour {
 			
 			//Debug.Log ("timer: " + timer );
 
-			Debug.Log (fireTimer);
+			//Debug.Log (fireTimer);
 			if (timer >= timeToCharge && charging == true) {
 				currentWeaponIndex = 8;
 				//fireTimer += Time.deltaTime;
@@ -183,7 +202,7 @@ public class Weapon : MonoBehaviour {
 
 		//check to see which ammo is equipped, List of bullet prefabs with diff textures and damages
 		//Debug.Log("currentWeapon index: " + currentWeaponIndex);
-		Debug.Log("shooting");
+		//Debug.Log("shooting");
 		GameObject bulletObject = Instantiate (bulletPrefab[currentWeaponIndex], firePoint.position, firePoint.rotation);
 		bulletObject.SendMessage("PassedValue", pc); // passes the player controller to bullet
 		//scatter shot
@@ -207,7 +226,6 @@ public class Weapon : MonoBehaviour {
 		if (pc.missileCount <= 0) {
 			currentWeaponIndex = 0;
 		}
-
 	}
 
 	public void WeaponCheck(int weaponChoice) {

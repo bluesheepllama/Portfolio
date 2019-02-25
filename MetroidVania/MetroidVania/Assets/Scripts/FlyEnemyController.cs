@@ -60,25 +60,12 @@ public class FlyEnemyController : EnemyParent {
 
 			}
 	}
-
-	/*
-	void Update () {
-
-		if(gameObject.tag == "Player")
-
-		count = Time.time + offset;
-		if (count % 3 <= 1.3) {
-			controlledMover.AccelerateInDirection (new Vector2 (0f, 1f));
-			//Debug.Log ("EnemyFlyer up");
-
+	//teleports enemies could be useful
+	/*void OnCollisionEnter2D(Collision2D collider) {
+		if (collider.gameObject.tag == "Ground") {//wont work for enemies to hit player
+			//Debug.Log("Enemy Pareent, in collinoenter");
+			Vector2 direction =   ( transform.position + collider.transform.position);
+			rigidBody.AddForce (direction * 500);
 		}
-
-		if (count % 3 > 1.7) {
-			controlledMover.AccelerateInDirection (new Vector2(0f,-1.3f));
-			//Debug.Log ("EnemyFlyer down");
-		}
-
-
-	}
-	*/
+	}*/
 }

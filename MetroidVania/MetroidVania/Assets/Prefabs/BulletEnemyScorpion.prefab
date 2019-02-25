@@ -94,7 +94,7 @@ MonoBehaviour:
   rb: {fileID: 50151355594458572}
   damage: 5
   impactEffect: {fileID: 0}
-  svf: {fileID: 114311245307316422, guid: ffa61bcbc00ee43e19e28fba2aba9c3f, type: 2}
+  player: {fileID: 4976318357173938, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
 --- !u!114 &114728133252090970
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -67,29 +67,35 @@ public class Boss1 : EnemyParent {
 		if (target) {
 			//Debug.Log ("boss timer " + timer);
 			if (IsWithinDistance (stopDistance)) {
-
+				//Debug.Log (timer);
 				if (timer < timeToMove) {
-					//SetMoveToPoint (patrolPoints [0]);
-					IncrementMoveToPoint ();
+					SetMoveToPoint (patrolPoints [0]);
+					//IncrementMoveToPoint ();
 
 
 				}
-				if (timer < timeToMove * 2 && timer > timeToMove) {
-					//SetMoveToPoint (patrolPoints [1]);
-					IncrementMoveToPoint ();
+				if (timer < timeToMove *2 && timer > timeToMove) {//*2
+					SetMoveToPoint (patrolPoints [1]);
+					//IncrementMoveToPoint ();
+					//Instantiate (intantiatedEnemiesPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+				}
+				if (timer < timeToMove*3  && timer > timeToMove *2 ) {//*3,*2
+					SetMoveToPoint (patrolPoints [2]);
+					//IncrementMoveToPoint ();
+					//Instantiate (intantiatedEnemiesPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+
+
+				}
+				if (timer < timeToMove*4  && timer > timeToMove*3) {//*4,*3
+					SetMoveToPoint (patrolPoints [3]);
+					//IncrementMoveToPoint ();
+				    //Instantiate (intantiatedEnemiesPrefab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation);
+					Debug.Log("boss instantiate");
 					Instantiate (intantiatedEnemiesPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-
-				}
-				if (timer < timeToMove * 3 && timer > timeToMove * 2) {
-					//SetMoveToPoint (patrolPoints [2]);
-					IncrementMoveToPoint ();
-
-
-				}
-				if (timer < timeToMove * 4 && timer > timeToMove * 3) {
-					//SetMoveToPoint (patrolPoints [3]);
-					IncrementMoveToPoint ();
-				    Instantiate (intantiatedEnemiesPrefab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation);
+					Instantiate (intantiatedEnemiesPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+					Instantiate (intantiatedEnemiesPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 					Instantiate (intantiatedEnemiesPrefab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation);
 
 					timer = 0;

@@ -20,7 +20,8 @@ public enum PickupType {
 	MissleUpgrade,
 	ScattershotPower,
 	VenomPower,
-	DamageUpgrade
+	DamageUpgrade,
+	Key
 
 }
 public class Pickup : MonoBehaviour {

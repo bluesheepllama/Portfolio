@@ -10,17 +10,17 @@ public class TriggerInstantiateEnemyTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (timer % 300 == 10) {
+		//if (timer % 300 == 10) {
 			instantiatEnemiesTrigger.SetActive (false);
 
-		}
+		//}
 
 	}
 	private void OnTriggerEnter2D(Collider2D collider) {
 
 
 		if (collider.tag == "Player") {
-			timer = Time.time;
+			//timer = Time.time;
 			instantiatEnemiesTrigger.SetActive (true);
 		}
 	}

@@ -148,7 +148,7 @@ MonoBehaviour:
   controlledMover: {fileID: 114452838048729582}
   target: {fileID: 0}
   animator: {fileID: 0}
-  maxSeeDistance: 20
+  maxSeeDistance: 33
   count: 0
   offset: 0
 --- !u!114 &114487196563001712
@@ -180,6 +180,7 @@ MonoBehaviour:
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
   isVenomDamage: 0
 --- !u!212 &212099207222397526
 SpriteRenderer:
