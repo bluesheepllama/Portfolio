@@ -36,12 +36,17 @@ public class PlayerController : MonoBehaviour {
 	private float normalDrag = 0.2f;
 	private float stopDrag = 20f;
 	private Vector2 rbStopVel;
+	private float temptimer = 0f;
+	private float temptimer2 = 0f;
+		
+
 
 	public int maxMissileCount = 5;
 	public int missileCount = 5;
 	public float currentScale;
 	public int weaponIndex;
 	public float fireTimer;
+
 
 	public void Awake() {
 		controlledMover = GetComponent<Mover> ();
@@ -54,10 +59,11 @@ public class PlayerController : MonoBehaviour {
 		grappleHook = GetComponent<GrappleHook> ();
 		shrinkEnabled = false;
 		normalGravity = controlledRigidbody.gravityScale;
-		rbStopVel = new Vector2 (0f, controlledRigidbody.velocity.y);
+		rbStopVel = new Vector2 (0f, controlledRigidbody.velocity.y);//
 	}
 
-	
+
+
 	// Update is called once per frame
 	void Update () {
 		controlledAnimator.SetBool ("IsWalking", false);
@@ -103,7 +109,9 @@ public class PlayerController : MonoBehaviour {
 			//if still moving left then turn friction way up
 				if (controlledRigidbody.velocity.x < 0f && groundDetector.isOnGround) {// not acceleration, not position, velocity?
 					//Debug.Log ("inrcrease drag right");
-					controlledRigidbody.drag = stopDrag;
+					//controlledRigidbody.drag = stopDrag;
+					controlledRigidbody.velocity = rbStopVel;
+
 				}
 				if (groundDetector.isOnSlopedGround == true) { //walks up slopes
 					controlledMover.AccelerateInDirection (new Vector2 (1f, 1f));
@@ -117,7 +125,7 @@ public class PlayerController : MonoBehaviour {
 				//stopDrag = 100;
 				controlledRigidbody.velocity = rbStopVel;
 
-				controlledRigidbody.drag = stopDrag;
+				//controlledRigidbody.drag = stopDrag;
 				Debug.Log ("getkeyup D");
 			}
 		}
@@ -140,7 +148,9 @@ public class PlayerController : MonoBehaviour {
 			}*/
 			if (controlledRigidbody.velocity.x > 0f && groundDetector.isOnGround) {// not acceleration, not position, velocity?
 				//Debug.Log ("inrcrease drag left");
-				controlledRigidbody.drag = stopDrag;
+				//controlledRigidbody.drag = stopDrag;
+				controlledRigidbody.velocity = rbStopVel;
+
 			}
 			if (groundDetector.isOnSlopedGround == true) { //walks up slopes
 				controlledMover.AccelerateInDirection (new Vector2 (-1f, 1f));
@@ -155,7 +165,9 @@ public class PlayerController : MonoBehaviour {
 				//stopDrag = 100;
 				controlledRigidbody.velocity = rbStopVel;
 
-				controlledRigidbody.drag = stopDrag;
+				//controlledRigidbody.drag = stopDrag;
+				controlledRigidbody.velocity = rbStopVel;
+
 				Debug.Log ("getkeyup A");
 
 			}
@@ -187,11 +199,11 @@ public class PlayerController : MonoBehaviour {
 
 
 		//jumping
-		//float jumpIncrement = 0f;
 
-		if(Input.GetKeyDown(KeyCode.Space)) { 
+		if(Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Space)) { 
 			controlledRigidbody.drag = normalDrag;
 			controlledJumper.Jump ();
+			Debug.Log ("after jump function");
 			if (controlledJumper.doublecount > 1) {
 				controlledJumper.doublecount = 0;
 			}
@@ -234,11 +246,11 @@ public class PlayerController : MonoBehaviour {
 			controlledWeapon.WeaponCheck (0);
 		}
 
-
-		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Alpha2)) {//change to 1-9
+		//changing to and from missile
+		if (Input.GetKeyDown(KeyCode.Alpha2)) {//change to 1-9
 			if (haveMissle && missileCount > 0) {
 				
-				if(controlledWeapon.currentWeaponIndex != 1)
+				//if(controlledWeapon.currentWeaponIndex != 1)
 					controlledWeapon.WeaponCheck (1);
 			}
 		}
@@ -246,8 +258,18 @@ public class PlayerController : MonoBehaviour {
 			uiController.missileSprite.color = alpha100;
 		else 
 			uiController.missileSprite.color = alpha20;
-
-
+		
+		if (Input.GetKeyDown(KeyCode.LeftShift)) {
+			if (haveMissle && missileCount > 0) {
+				
+				if (controlledWeapon.currentWeaponIndex == 1)
+					controlledWeapon.WeaponCheck (0);
+				else
+					controlledWeapon.WeaponCheck (1);
+			}
+		}
+	
+		//changing to webshot
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {//change to 1-9
 			if (haveWebShot) {
 				
@@ -255,28 +277,33 @@ public class PlayerController : MonoBehaviour {
 
 			}
 		}
+		//changing to scatter shot
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {//change to 1-9
 			if (haveScatterShot) {
 				
 				controlledWeapon.WeaponCheck (3);
 			}
 		}
+		//change to venom shot
 		if (Input.GetKeyDown(KeyCode.Alpha5)) {//change to 1-9
 			if (haveVenomShot) {
 				
 				controlledWeapon.WeaponCheck (4);
 			}
 		}
+		//change to grapple , venom is in slot tho??
 		if (Input.GetKeyDown (KeyCode.Alpha6)) {//change to 1-9
 			if (haveGrapple) {
 				controlledWeapon.WeaponCheck (5);
 			}
 		}
+		//change to shoot though walls
 		if (Input.GetKeyDown (KeyCode.Alpha7)) {//change to 1-9
 			if (haveGrapple) {
 				controlledWeapon.WeaponCheck (6);
 			}
 		}
+		//change to spider grenade
 		if (Input.GetKeyDown (KeyCode.Alpha8)) {//change to 1-9
 			if (haveGrapple) {
 				controlledWeapon.WeaponCheck (7);
@@ -293,20 +320,34 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-		if (Input.anyKey == true && !(Input.GetKey (KeyCode.D)) && !(Input.GetKey (KeyCode.A)) && !(Input.GetKey (KeyCode.W))&& !(Input.GetKeyDown (KeyCode.Space))) {
+		//~FIXES A BUG
+		if (Input.anyKey == true && !(Input.GetKey (KeyCode.D)) && !(Input.GetKey (KeyCode.A)) && !(Input.GetKey (KeyCode.W))&& !(Input.GetKey (KeyCode.Space)) && !(Input.GetKey (KeyCode.M))) {
 			if (groundDetector.isOnGround && !(CanWallClimb ())) { //!(controlledGround.IsOnGroundRayCast())) {
-				//stopDrag = 100;
-				controlledRigidbody.velocity = rbStopVel;
-				//if canwallclimb then apply normal drag
+				temptimer += Time.deltaTime;
+				Debug.Log (temptimer);
+				if (temptimer > .01f) {
+					controlledRigidbody.velocity = rbStopVel;
+					temptimer = 0;
+				}
 				Debug.Log ("anykey == true");
-				//controlledRigidbody.drag = stopDrag;
-				if (CanWallClimb())//this is where it needs to happen
+				if (CanWallClimb())
 					controlledRigidbody.drag = 0;
 				Debug.Log ("anykey == true, apply normal drag");
 	
-				
 			}
 		}
+		/*
+		if(Input.GetKey (KeyCode.Space) || (Input.GetKey (KeyCode.M))) {
+			temptimer2 += Time.deltaTime;
+			if (temptimer2 > .05f) {
+				Debug.Log ("trying to prevent slide jump");
+				controlledRigidbody.velocity = rbStopVel;
+				temptimer2 = 0;
+			}
+
+		}
+		*/
+		//~
 
 		if (Input.anyKey == false) {
 			//Debug.Log ("no key pressed, : velocity y: " + controlledRigidbody.velocity.y);

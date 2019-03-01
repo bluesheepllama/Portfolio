@@ -15,6 +15,7 @@ public class Destructable : MonoBehaviour {
 	public int healAmountMax = 7;
 
 	private SpriteRenderer spriteRenderer;
+	private PlayerController playerController;
 	private float colorChangLength = 8f;
 	private float colorChangeCounter;
 	private bool colorchangebool = false;
@@ -27,7 +28,7 @@ public class Destructable : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
-
+		playerController = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>();
 		hitPoints = maximumHitpoints;
 
 	}
@@ -99,7 +100,7 @@ public class Destructable : MonoBehaviour {
 				GameObject healthpre = Instantiate (healthPrefab, player.transform.position, player.transform.rotation) as GameObject;
 				Destroy (healthpre,10);
 			}
-			if(missileAmmoPrefab) {
+			if(missileAmmoPrefab && playerController.haveMissle) {
 				//Debug.Log ("spawn missile");
 				GameObject missilepre = Instantiate(missileAmmoPrefab, spawnPosition,player.transform.rotation) as GameObject;
 				Destroy (missilepre,10);

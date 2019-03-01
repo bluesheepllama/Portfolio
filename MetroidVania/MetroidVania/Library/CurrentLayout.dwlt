@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 642
-  m_MinSize: {x: 721, y: 492}
+  m_MinSize: {x: 723, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 13231
+  controlID: 19296
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 13142
+  controlID: 19192
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -208,10 +208,10 @@ MonoBehaviour:
     y: 0
     width: 342
     height: 642
-  m_MinSize: {x: 242, y: 492}
+  m_MinSize: {x: 244, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 13191
+  controlID: 19297
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -230,8 +230,8 @@ MonoBehaviour:
     y: 0
     width: 342
     height: 369
-  m_MinSize: {x: 242, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 244, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
@@ -320,13 +320,13 @@ MonoBehaviour:
   m_MaximizeOnPlay: 1
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 04000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-    m_HBaseRangeMin: -57.1875
-    m_HBaseRangeMax: 57.1875
+    m_HBaseRangeMin: -73.200005
+    m_HBaseRangeMax: 73.200005
     m_VBaseRangeMin: -45.75
     m_VBaseRangeMax: 45.75
     m_HAllowExceedBaseRangeMin: 1
@@ -395,14 +395,14 @@ MonoBehaviour:
     height: 400
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 84952.49415910244
+  lastFramingTime: 164332.17792141438
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 254.1761, y: -96.2576, z: -2.7898962}
+    m_Target: {x: 214.884, y: 24.794302, z: -12.409017}
     speed: 2
-    m_Value: {x: 254.1761, y: -96.2576, z: -2.7898962}
+    m_Value: {x: 214.884, y: 24.794302, z: -12.409017}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -422,22 +422,22 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     zGrid:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 432.24728
+    m_Target: 87.55295
     speed: 2
-    m_Value: 432.24728
+    m_Value: 87.55295
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
-  m_ShowGlobalGrid: 1
+  m_ShowGlobalGrid: 0
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -605,10 +605,10 @@ MonoBehaviour:
     height: 348
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 5}
-    m_SelectedIDs: 102b0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 761e0400
     m_LastClickedID: 0
-    m_ExpandedIDs: 94f9ffffb8faffffc8faffff98fbffff000000004c2f0000d02f0000fa300000183100007e31000032340000a6340000d43400004635000034360000d2360000223700004c37000082370000fc3700008e380000c63800002c390000c0390000163a0000
+    m_ExpandedIDs: c270e7ffc670e7ff4273e7ff9afaffff9efbffff00000000b02f0000de300000fc300000f03200002c350000303600002c3700006e380000a638000000390000f6390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -627,7 +627,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
   m_ExpandedScenes:
-  - Scene01
+  - Level2Dessert
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -661,7 +661,7 @@ MonoBehaviour:
     m_CachedPref: 50
     m_ControlHash: 510661707
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 1740729690735704, guid: afc08d91264914428adc1be453edf127, type: 2}
+  m_Palette: {fileID: 1442171552142642, guid: 4fa7c10b10c634e0bb92c98bb17a6ebd, type: 2}
   m_Target: {fileID: 0}
 --- !u!114 &20
 MonoBehaviour:
@@ -711,10 +711,10 @@ MonoBehaviour:
   m_LastProjectPath: /Users/mitchelldennen/Documents/GitHub/Portfolio/MetroidVania/MetroidVania
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 211.00165}
-    m_SelectedIDs: 5e2a0000
-    m_LastClickedID: 10846
-    m_ExpandedIDs: 00000000b2270000442c00006c2c0000ffffff7f
+    scrollPos: {x: 0, y: 101}
+    m_SelectedIDs: 582a0000
+    m_LastClickedID: 10840
+    m_ExpandedIDs: 00000000ac270000202c0000482c0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -742,7 +742,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b2270000442c00006c2c0000ffffff7f
+    m_ExpandedIDs: 00000000ac270000482c0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -769,8 +769,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c62300001029000082290000a62900006a2b000074900000d02900003c29000076290000e8c710008e2700003063000026620000ea6e0000e67b0000303b0000a637000084cc00008ccc0000b2cf0000bcc60000e606020070fc000034bfebff78c0ebff0a290000102b000040280000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c62300001029000082290000a62900006a2b000074900000d02900003c29000076290000e8c710008e2700003063000026620000ea6e0000e67b0000303b0000a637000084cc00008ccc0000b2cf0000bcc60000e606020070fc000034bfebff78c0ebff0a290000102b0000402800000a2b0000f289e7ff741e0400
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -794,7 +794,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 377}
+    m_ScrollPosition: {x: 0, y: 713}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 110
 --- !u!114 &21

@@ -24,9 +24,11 @@ public class UIController : MonoBehaviour {
 	public GameObject shootThrouWallsUI;
 	public GameObject grappleUI;
 
+	//Equiped
 	public Image missileSprite;
 
-
+	//turn UI on/off
+	public GameObject miniMap;
 
 
 
@@ -61,6 +63,20 @@ public class UIController : MonoBehaviour {
 
 			}
 		}
+		if (Input.GetKeyDown (KeyCode.O)) {
+			if (miniMap.activeSelf)
+				miniMap.SetActive (false);
+			else
+				miniMap.SetActive (true);
+		}
+
+
+		if(playerController.haveMissle)
+			missileUI.SetActive (true);
+		else
+			missileUI.SetActive (false);
+		
+
 		if(destansiateWallTriggerMsg.active ) {
 			if (Input.GetKeyDown (KeyCode.Space)) {//
 				destansiateWallTriggerMsg.SetActive (false);

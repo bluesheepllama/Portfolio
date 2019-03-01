@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114452838048729582}
   - component: {fileID: 114477805083110222}
   - component: {fileID: 95169082463105370}
+  - component: {fileID: 114144758525776056}
   m_Layer: 0
   m_Name: FlyEnemy
   m_TagString: Enemy
@@ -109,6 +110,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114144758525776056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1635330569412590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3075911cbc0471aaf0d569772a644d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultRightFacing: 1
+  flip: 0
 --- !u!114 &114452838048729582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,8 +193,11 @@ MonoBehaviour:
   hitPoints: 1
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
-  missileAmmoPrefab: {fileID: 0}
+  missileAmmoPrefab: {fileID: 1733296799385722, guid: 37409f3bdcf05415cb936b154970171e,
+    type: 2}
   keyPrefab: {fileID: 0}
+  healAmountMin: 2
+  healAmountMax: 7
   isVenomDamage: 0
 --- !u!212 &212099207222397526
 SpriteRenderer:
