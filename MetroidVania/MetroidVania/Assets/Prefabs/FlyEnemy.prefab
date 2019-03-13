@@ -162,7 +162,7 @@ MonoBehaviour:
   controlledMover: {fileID: 114452838048729582}
   target: {fileID: 0}
   animator: {fileID: 0}
-  maxSeeDistance: 33
+  maxSeeDistance: 27
   count: 0
   offset: 0
 --- !u!114 &114487196563001712

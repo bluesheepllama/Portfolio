@@ -7,6 +7,7 @@ public class EnemyParent : MonoBehaviour {
 	public float stopDistance = 3.5f;
 	public Vector2 currentMoveToPoint;
 	public float hitForce;
+	private float hitForceGround = 100f;
 	public bool isFlying = false;
 
 	protected Mover mover;
@@ -87,6 +88,10 @@ public class EnemyParent : MonoBehaviour {
 		//Debug.Log("Enemy Pareent, in collinoenter");
 		Vector2 direction =  (transform.position - collider.transform.position);
 			rigidBody.AddForce (direction * hitForce);
+		}
+		if (isFlying && collider.gameObject.tag == "Ground") {
+			Vector2 direction =  (transform.position - collider.transform.position);
+			rigidBody.AddForce (direction * hitForceGround);
 		}
 	}
 }

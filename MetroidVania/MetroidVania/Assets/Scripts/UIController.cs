@@ -30,7 +30,8 @@ public class UIController : MonoBehaviour {
 	//turn UI on/off
 	public GameObject miniMap;
 
-
+	public GameObject welcomeScreen;
+	public Button welcomeScreenClose;
 
 	public GameObject saveUI;
 	public Button yesButton;
@@ -48,10 +49,17 @@ public class UIController : MonoBehaviour {
 		//aS.volume = 100F;
 		songSource.Play ();
 		//PauseUI = GameObject.FindGameObjectsWithTag("PauseUI");
+		PauseGame();
+	}
+	public void CloseWelcomeScreen() {
+		welcomeScreen.SetActive (false);
+		ResumeGame ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		welcomeScreenClose.onClick.AddListener (CloseWelcomeScreen);
+
 		healthTotal.text = destructable.hitPoints.ToString();
 		missileTotal.text = playerController.missileCount.ToString ();
 		if (Input.GetKeyDown (KeyCode.P)) {

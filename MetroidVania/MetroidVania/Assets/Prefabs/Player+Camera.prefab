@@ -35,7 +35,11 @@ GameObject:
   - component: {fileID: 232339523121050366}
   - component: {fileID: 120524474345796360}
   - component: {fileID: 70239498413927952}
-  m_Layer: 0
+  - component: {fileID: 58261814494941016}
+  - component: {fileID: 82722291608266762}
+  - component: {fileID: 114847498726314724}
+  - component: {fileID: 114111514508966868}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -85,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4592238609537720}
   - component: {fileID: 212984775463842768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306068406044412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.5, y: 24.7, z: -9.6284275}
+  m_LocalPosition: {x: -0.5, y: 1.2, z: -9.6284275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4901855083554744}
@@ -125,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934211764533512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -168, y: -112, z: -0.37157273}
+  m_LocalPosition: {x: 55, y: 4, z: -0.37157273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686851051303056}
@@ -140,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289488909662396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42, y: 24, z: 0.6871673}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4592238609537720}
@@ -177,7 +181,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -203,6 +207,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58261814494941016
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289488909662396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.4528899, y: 0.9450822}
+  serializedVersion: 2
+  m_Radius: 0.76621485
 --- !u!61 &61662191939154488
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -250,6 +269,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1306068406044412}
   m_Enabled: 1
+--- !u!82 &82722291608266762
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289488909662396}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95940858473722012
 Animator:
   serializedVersion: 3
@@ -280,6 +379,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointcount: 0
   uiController: {fileID: 0}
+--- !u!114 &114111514508966868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289488909662396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a234b36e8ec04d148bfb7a946e706ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114130704980663108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,6 +432,9 @@ MonoBehaviour:
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
+  healAmountMin: 2
+  healAmountMax: 7
   isVenomDamage: 0
 --- !u!114 &114387157632060012
 MonoBehaviour:
@@ -362,14 +475,15 @@ MonoBehaviour:
   haveWallClimb: 1
   haveVenomShot: 1
   haveGrapple: 1
-  haveShootThroughWalls: 1
-  haveGrenade: 1
+  haveShootThroughWalls: 0
+  haveGrenade: 0
   isPaused: 0
   haveDoubleJump: 1
   maxMissileCount: 5
   missileCount: 5
   currentScale: 0
   weaponIndex: 0
+  fireTimer: 0
   shrinkEnabled: 0
   isShrunk: 0
   shrinkValue: 0.5
@@ -424,6 +538,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   grappleIsEnabled: 0
+--- !u!114 &114847498726314724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289488909662396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e20a1e0381f47b6baecafd3866b85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip1: {fileID: 8300000, guid: 210433c3c786d084e9a076fc56f81969, type: 3}
+  clip2: {fileID: 8300000, guid: 1534fc1c46699bd43ac431c838acf6eb, type: 3}
+  clip3: {fileID: 8300000, guid: 70414c508cbe9274e9f53070ff311352, type: 3}
+  clip4: {fileID: 8300000, guid: 7020f67507d2c0c48b4e7a2449bfad82, type: 3}
+  audio1: {fileID: 0}
+  audio2: {fileID: 0}
+  audio3: {fileID: 0}
+  audio4: {fileID: 0}
 --- !u!114 &114864848571926234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,6 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7421a12c234c84a85acd64422a128c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayCastLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   isOnGround: 0
   isOnSlopedGround: 0
   colliderCenter: {x: 0, y: 0}
@@ -651,5 +787,5 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 82.865, y: 26.742794}
   m_AutoConfigureDistance: 1
-  m_Distance: 314.54065
+  m_Distance: 35.96794
   m_MaxDistanceOnly: 1

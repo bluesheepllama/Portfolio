@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114311245307316422}
   - component: {fileID: 61446027586890460}
   - component: {fileID: 58881308022438404}
-  - component: {fileID: 114176293600776522}
+  - component: {fileID: 114826286952101308}
   m_Layer: 0
   m_Name: Scorpion enemy
   m_TagString: Enemy
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533022332663666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.66, y: -1.02, z: 0}
+  m_LocalPosition: {x: -1.62, y: 0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4820894495860204}
@@ -70,8 +70,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174411519803600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -234.3, y: -66.3, z: 9.8930435}
-  m_LocalScale: {x: 2.903109, y: 2.9031084, z: 2.4192572}
+  m_LocalPosition: {x: 304.43634, y: 100.4, z: 9.8930435}
+  m_LocalScale: {x: 1, y: 1, z: 2.4192572}
   m_Children:
   - {fileID: 4485459415366962}
   m_Father: {fileID: 0}
@@ -88,10 +88,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 191.23592
+  m_Mass: 30.227898
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -103,7 +103,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174411519803600}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.01, y: 4.21}
+    oldSize: {x: 7.35, y: 3.63}
     newSize: {x: 4.94, y: 3.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -169,46 +169,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1174411519803600}
-  maximumHitpoints: 40
-  hitPoints: 40
+  maximumHitpoints: 5
+  hitPoints: 5
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
-  missileAmmoPrefab: {fileID: 0}
-  isVenomDamage: 0
---- !u!114 &114176293600776522
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174411519803600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6c0e4040192486082a3ca9385b7ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopDistance: 3.5
-  currentMoveToPoint: {x: 0, y: 0}
-  hitForce: 0
-  isFlying: 0
-  flyingOffset: 10
-  controlledMover: {fileID: 0}
-  count: 0
-  patrolOffset: 20
-  target: {fileID: 4976318357173938, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
-  animator: {fileID: 0}
-  maxSeeDistance: 10
-  offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
+  missileAmmoPrefab: {fileID: 1733296799385722, guid: 37409f3bdcf05415cb936b154970171e,
     type: 2}
-  fireRate: 2
-  bulletSpeed: 20
-  bulletSpawnPoint: {fileID: 4485459415366962}
-  turret: {fileID: 4485459415366962}
-  scorpioTransform: {fileID: 4820894495860204}
-  patrolPoints:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  keyPrefab: {fileID: 0}
+  healAmountMin: 2
+  healAmountMax: 7
+  isVenomDamage: 0
 --- !u!114 &114311245307316422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,6 +204,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &114826286952101308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174411519803600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6c0e4040192486082a3ca9385b7ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopDistance: 3.5
+  currentMoveToPoint: {x: 0, y: 0}
+  hitForce: 15000
+  isFlying: 0
+  flyingOffset: 10
+  controlledMover: {fileID: 0}
+  count: 0
+  patrolOffset: 50
+  target: {fileID: 0}
+  animator: {fileID: 0}
+  maxSeeDistance: 33
+  offset: 0
+  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
+    type: 2}
+  fireRate: 2
+  bulletSpawnPoint: {fileID: 4485459415366962}
+  turret: {fileID: 4485459415366962}
+  scorpioTransform: {fileID: 4485459415366962}
+  patrolPoints:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
 --- !u!212 &212732832355023134
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -268,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 21c1a25bf217d48398da21382a39ac81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4593ec4e3127749d7a4e9dfdd2e49949, type: 3}
   m_Color: {r: 0.61764705, g: 0.0045415265, b: 0.19481558, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -17,12 +17,12 @@ public class ScorpionEnemyController : EnemyParent {
 
 	public Transform target;
 	public Animator animator;
-	public float maxSeeDistance = 10f;
+	public float maxSeeDistance = 30f;
 	public float offset;
 
 	public GameObject bulletPreFab;
 	public float fireRate = 2f;
-	public float bulletSpeed = 20f;
+	private float bulletSpeed = 100f;
 	public Transform bulletSpawnPoint;
 	public Transform turret;
 	public Transform scorpioTransform;
@@ -44,7 +44,7 @@ public class ScorpionEnemyController : EnemyParent {
 
 	public void Start() {
 		animatorController = GetComponent<Animator> ();
-
+		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 		patrolPoints [0] = new Vector2 (transform.position.x,transform.position.y);
 		patrolPoints [1] = new Vector2 (transform.position.x-patrolOffset,transform.position.y);
 		patrolPoints [2] = new Vector2 (transform.position.x+patrolOffset,transform.position.y);
@@ -122,6 +122,15 @@ public class ScorpionEnemyController : EnemyParent {
 		//base.Update ();
 
 	}
+
+	/*
+	 * fireTimer = 0f;
+		GameObject bullet = Instantiate (bulletPreFab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation) as GameObject;
+
+		Rigidbody bulletBody = bullet.GetComponent<Rigidbody> ();
+		bulletBody.velocity = bullet.transform.forward * bulletSpeed;
+	}
+	 * */
 
 	private void Fire() {
 		fireTimer = 0f;

@@ -149,12 +149,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1284703846132272}
-  maximumHitpoints: 50
-  hitPoints: 50
+  maximumHitpoints: 60
+  hitPoints: 60
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 0}
   keyPrefab: {fileID: 1733296799385722, guid: f8cd59fe745b44a00beda0de4cf21710, type: 2}
+  healAmountMin: 2
+  healAmountMax: 7
   isVenomDamage: 0
 --- !u!114 &114285671095035846
 MonoBehaviour:

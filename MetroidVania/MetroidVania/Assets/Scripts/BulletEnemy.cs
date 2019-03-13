@@ -21,26 +21,32 @@ public class BulletEnemy : MonoBehaviour {
 	private SpriteVelocityFlipper spriteFlipper;
 
 	void Start() {
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 		//sets the normal scale to instantiated scale
-
+		rb = GetComponent<Rigidbody2D>();
 		impactEffect = GameObject.Find("ImpactEffect1");
 
 		//shrinks bullets
 
 		//if(transform.localScale.x > 0) {
 
-		if(followPlayer == false) {
-		if(spriteFlipper.flip) {//will only work on instatiated enemies because of prefab
-			Debug.Log ("shootleft");
+		if (followPlayer == false) {
+			if (spriteFlipper) {
+				if (spriteFlipper.flip) {//will only work on instatiated enemies because of prefab
+					Debug.Log ("shootleft");
 
-			rb.velocity = transform.right * transform.localScale.x * speed;
+					rb.velocity = transform.right /** transform.localScale.x*/ * speed;
 
-		} else if(!(spriteFlipper.flip)) {
-			Debug.Log ("shootright");
-			rb.velocity = -(transform.right) * transform.localScale.x * speed;
-		}
-		Debug.Log ("enemy transform" + transform.localScale.x + "flip" + spriteFlipper.flip);
-		//accounts for shooting in all directions
+				} else if (!(spriteFlipper.flip)) {
+					Debug.Log ("shootright");
+					rb.velocity = -(transform.right)/* * transform.localScale.x */* speed;
+				}
+				Debug.Log ("enemy transform" + transform.localScale.x + "flip" + spriteFlipper.flip);
+				//accounts for shooting in all directions
+			} else {
+				rb.velocity = transform.forward * speed;
+
+			}
 		}
 	}
 
@@ -70,13 +76,16 @@ public class BulletEnemy : MonoBehaviour {
 
 	private void TakeDamage(Collider2D collider) {
 		Destructable destructable = collider.GetComponent<Destructable> ();
-		if (destructable != null) {
+		if (destructable != null && collider.gameObject.tag == "Player") {
 
 			//if is shrunk then do less damage based on a multiplier
 
-				destructable.TakeDamage (damage);
-				Destroy (gameObject);
+			destructable.TakeDamage (damage);
+			Destroy (gameObject);
 
+
+		} else {
+			Destroy (gameObject);
 
 		}
 	}

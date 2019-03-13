@@ -183,7 +183,7 @@ MonoBehaviour:
   missileAmmoPrefab: {fileID: 0}
   keyPrefab: {fileID: 0}
   healAmountMin: 1
-  healAmountMax: 4
+  healAmountMax: 1
   isVenomDamage: 0
 --- !u!212 &212730828394064424
 SpriteRenderer:

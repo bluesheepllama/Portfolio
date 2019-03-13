@@ -24,6 +24,8 @@ public class FlyEnemyController : EnemyParent {
 		isFlying = true;
 		animatorController = GetComponent<Animator> ();
 		rigidBody = GetComponent<Rigidbody2D> ();
+		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
+
 		//GameObject player = GameObject.FindGameObjectWithTag("Player");
 		//target = player.transform;
 	}

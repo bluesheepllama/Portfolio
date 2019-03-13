@@ -18,6 +18,7 @@ public class BeeEnemyController : EnemyParent {
 	private Animator animatorController;
 
 	public List<Vector2> patrolPoints;
+	private Vector2 originPos;
 
 	private int moveToIndex;
 
@@ -37,7 +38,7 @@ public class BeeEnemyController : EnemyParent {
 		patrolPoints [1] = new Vector2 (transform.position.x-patrolOffset,transform.position.y);
 		patrolPoints [2] = new Vector2 (transform.position.x+patrolOffset,transform.position.y);
 		rigidBody = GetComponent<Rigidbody2D> ();
-
+		originPos = patrolPoints [0];
 		moveToIndex = 0;
 		if (patrolPoints.Count > 0) {
 			SetMoveToPoint(patrolPoints [0]);
@@ -113,5 +114,14 @@ public class BeeEnemyController : EnemyParent {
 		SetMoveToPoint (patrolPoints [moveToIndex]);
 	}
 
+	/*private void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject.tag == "Ground") {
+			//IncrementMoveToPoint ();
+			SetMoveToPoint (originPos);
+
+			Vector2 direction =  (transform.position - collision.transform.position);
+			rigidBody.AddForce (direction * 800);
+		}
+	}*/
 
 }

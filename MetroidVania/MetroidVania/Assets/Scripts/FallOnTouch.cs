@@ -7,17 +7,18 @@ public class FallOnTouch : MonoBehaviour {
 	public float timeToDrop = 3f;
 
 	private float dropTimer;
-	private bool shouldDrop;
+	private bool shouldDrop = false;
 	private float yStartPosition;
 
 	// Use this for initialization
 	void Start () {
 		yStartPosition = gameObject.transform.position.y;
+		dropTimer = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameObject.transform.position.y < -100f) {//mess with to "respawn" quicker or slower
+		if (gameObject.transform.position.y < 218f) {//mess with to "respawn" quicker or slower
 			gameObject.transform.position = new Vector3 (gameObject.transform.position.x,yStartPosition,gameObject.transform.position.z);
 			GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 			shouldDrop = false;

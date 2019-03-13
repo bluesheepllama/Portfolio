@@ -18,10 +18,11 @@ public class PlayerPrefsCharacterSaver : MonoBehaviour {
 	{
 
 		//saves the gamez if save is triggered
-		if (saveTrigger.isSaveTriggered == true) {
-			uiController.PauseGame ();
-			saveUI.SetActive (true);
-			/*if (yesButton.onClick.AddListener ()) {
+		if (saveTrigger) {
+			if (saveTrigger.isSaveTriggered == true) {
+				uiController.PauseGame ();
+				saveUI.SetActive (true);
+				/*if (yesButton.onClick.AddListener ()) {
 				SaveCharacter (characterData,0);//look into slot number
 				//tell them it saved
 				saveUI.SetActive(false);
@@ -32,15 +33,16 @@ public class PlayerPrefsCharacterSaver : MonoBehaviour {
 			uiController.ResumeGame ();
 		}
 		*/
-			yesButton.onClick.AddListener (YesClick);
-			noButton.onClick.AddListener (NoClick);
+				yesButton.onClick.AddListener (YesClick);
+				noButton.onClick.AddListener (NoClick);
 
-			/*if (Input.GetKeyDown (KeyCode.S))
+				/*if (Input.GetKeyDown (KeyCode.S))
 				SaveCharacter (characterData, 0);
 
 			if (Input.GetKeyDown (KeyCode.L))
 				characterData = LoadCharacter (0);
 				*/
+			}
 		}
 		
 	}

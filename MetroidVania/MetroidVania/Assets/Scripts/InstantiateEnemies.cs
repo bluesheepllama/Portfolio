@@ -57,7 +57,7 @@ public class InstantiateEnemies : MonoBehaviour {
 	//public List<List<Vector2>> snailPatrolPoints; //[i][3]
 
 	//fly values
-	public float flySeeDistance;
+	//public float flySeeDistance;
 
 
 

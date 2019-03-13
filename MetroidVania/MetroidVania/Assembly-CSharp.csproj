@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\BeetleShooterEnemy.cs" />
      <Compile Include="Assets\Scripts\Blip.cs" />
      <Compile Include="Assets\Scripts\Boss1.cs" />
+     <Compile Include="Assets\Scripts\Boss2.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\BulletEnemy.cs" />
      <Compile Include="Assets\Scripts\CameraFollower.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\FallOnTouch.cs" />
      <Compile Include="Assets\Scripts\FlyEnemyController.cs" />
      <Compile Include="Assets\Scripts\FlyingShooterController.cs" />
+     <Compile Include="Assets\Scripts\FollowingEnemyBullet.cs" />
      <Compile Include="Assets\Scripts\GameGUI.cs" />
      <Compile Include="Assets\Scripts\GrappleHook.cs" />
      <Compile Include="Assets\Scripts\GroundDetector.cs" />
@@ -82,6 +84,7 @@
      <Compile Include="Assets\Scripts\KeyDestantiateWall.cs" />
      <Compile Include="Assets\Scripts\MiniMap.cs" />
      <Compile Include="Assets\Scripts\MissleWall.cs" />
+     <Compile Include="Assets\Scripts\ModifyCameraSize.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\Pickup.cs" />
      <Compile Include="Assets\Scripts\PickupGetter.cs" />
@@ -94,6 +97,7 @@
      <Compile Include="Assets\Scripts\SoundController.cs" />
      <Compile Include="Assets\Scripts\SpriteVelocityFlipper.cs" />
      <Compile Include="Assets\Scripts\TriggerInstantiateEnemyTrigger.cs" />
+     <Compile Include="Assets\Scripts\TurretEnemy.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\UncoverMap.cs" />
      <Compile Include="Assets\Scripts\VenomShotPower.cs" />
