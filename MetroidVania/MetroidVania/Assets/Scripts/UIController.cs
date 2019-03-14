@@ -32,6 +32,7 @@ public class UIController : MonoBehaviour {
 
 	public GameObject welcomeScreen;
 	public Button welcomeScreenClose;
+	public Button exitButton;
 
 	public GameObject saveUI;
 	public Button yesButton;
@@ -55,11 +56,15 @@ public class UIController : MonoBehaviour {
 		welcomeScreen.SetActive (false);
 		ResumeGame ();
 	}
+	public void ExitGame() {
+		Debug.Log ("quit game");
+		Application.Quit();
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		welcomeScreenClose.onClick.AddListener (CloseWelcomeScreen);
-
+		exitButton.onClick.AddListener (ExitGame);
 		healthTotal.text = destructable.hitPoints.ToString();
 		missileTotal.text = playerController.missileCount.ToString ();
 		if (Input.GetKeyDown (KeyCode.P)) {
@@ -151,9 +156,10 @@ public class UIController : MonoBehaviour {
 
 	}
 
+
 	public void DestantiatWallMsg() {
 		destansiateWallTriggerMsg.SetActive (true);
-		if (Input.GetKeyDown (KeyCode.Space)) {//
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.Period)) {//
 			destansiateWallTriggerMsg.SetActive (false);
 
 		}

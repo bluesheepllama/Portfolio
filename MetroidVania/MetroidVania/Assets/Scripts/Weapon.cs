@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour {
 	void Update() {
 		//fireTimer += Time.deltaTime;//~~~~~~~~~~~~~
 
-		if (Input.GetKeyDown (KeyCode.RightAlt) && pc.isPaused == false) {//getkey for charge
+		if ((Input.GetKeyDown (KeyCode.RightAlt) || Input.GetKeyDown (KeyCode.Slash) )&& pc.isPaused == false) {//getkey for charge
 			charging = true;
 			timer = 0;
 			if(pc.fireTimer >= fireRate) {
@@ -156,7 +156,7 @@ public class Weapon : MonoBehaviour {
 
 		//Debug.Log (timer);
 
-		if (Input.GetKeyUp (KeyCode.RightAlt) && pc.isPaused == false) {
+		if ((Input.GetKeyUp (KeyCode.RightAlt) || Input.GetKeyUp (KeyCode.Slash) )&& pc.isPaused == false) {
 			
 			//Debug.Log ("timer: " + timer );
 

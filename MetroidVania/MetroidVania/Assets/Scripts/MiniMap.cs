@@ -12,10 +12,14 @@ public class MiniMap : MonoBehaviour {
 	public float zoomLevel = 10f;
 
 	public Vector2 TransformPosition (Vector3 position) {
-		Vector3 offset = position - Target.position;
-		Vector2 newPosition = new Vector2 (offset.x,offset.y);//.z?
-		newPosition *= zoomLevel;
-		return newPosition;
+		if (position != null) {
+			Vector3 offset = position - Target.position;
+			Vector2 newPosition = new Vector2 (offset.x, offset.y);//.z?
+			newPosition *= zoomLevel;
+			return newPosition;
+		} else {
+			return new Vector2(0,0);
+		}
 	}
 
 	public Vector3 TransformRotation(Vector3 rotation) {

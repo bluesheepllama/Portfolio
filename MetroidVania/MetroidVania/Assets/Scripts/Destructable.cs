@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Destructable : MonoBehaviour {
 
@@ -91,6 +92,10 @@ public class Destructable : MonoBehaviour {
 
 	private void Die() {
 		//player.SetActive (false);
+		if (player.tag == "Player") {
+			gameObject.SetActive (false);
+			Invoke ("RestartScene", 3f);
+		}
 
 		if (player.tag != "Player") {//wont work for enemies to hit player
 			float ranNum = Random.Range (-1f, 1f);
@@ -110,14 +115,21 @@ public class Destructable : MonoBehaviour {
 				GameObject keyPre = Instantiate(keyPrefab, spawnPosition,player.transform.rotation) as GameObject;
 			}
 			//Invoke ("Respawn", 50);// time to respawn
+			Destroy (gameObject);
+
 		}
 			
-		Destroy (gameObject);
+		//Destroy (gameObject);
 
 	}
 	private void Respawn() {
 		//GameObject bulletObject = Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);
 		player.SetActive(true);
 		ModifyHitPoints (maximumHitpoints);
+	}
+	public void RestartScene()
+	{
+		Scene thisScene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(thisScene.name);
 	}
 }

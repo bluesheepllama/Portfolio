@@ -210,16 +210,36 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114366453670090864, guid: 501a84fd6c6a84633bbc09df48467de1,
+    - target: {fileID: 114325733407832934, guid: 501a84fd6c6a84633bbc09df48467de1,
+        type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1758255648}
+    - target: {fileID: 114534123589086594, guid: 501a84fd6c6a84633bbc09df48467de1,
+        type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1758255648}
+    - target: {fileID: 114408331306349180, guid: 501a84fd6c6a84633bbc09df48467de1,
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 323960754}
+      objectReference: {fileID: 1758255648}
+    - target: {fileID: 114448182231406208, guid: 501a84fd6c6a84633bbc09df48467de1,
+        type: 2}
+      propertyPath: saveTrigger
+      value: 
+      objectReference: {fileID: 565545534}
     - target: {fileID: 223730592540689430, guid: 501a84fd6c6a84633bbc09df48467de1,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 236039830}
+    - target: {fileID: 114366453670090864, guid: 501a84fd6c6a84633bbc09df48467de1,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 323960754}
     - target: {fileID: 114211181675523878, guid: 501a84fd6c6a84633bbc09df48467de1,
         type: 2}
       propertyPath: destructable
@@ -230,26 +250,17 @@ Prefab:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1758255650}
-    - target: {fileID: 114448182231406208, guid: 501a84fd6c6a84633bbc09df48467de1,
+    - target: {fileID: 114364380728324356, guid: 501a84fd6c6a84633bbc09df48467de1,
         type: 2}
-      propertyPath: saveTrigger
-      value: 
-      objectReference: {fileID: 565545534}
-    - target: {fileID: 114408331306349180, guid: 501a84fd6c6a84633bbc09df48467de1,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1758255648}
-    - target: {fileID: 114534123589086594, guid: 501a84fd6c6a84633bbc09df48467de1,
-        type: 2}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 1758255648}
-    - target: {fileID: 114325733407832934, guid: 501a84fd6c6a84633bbc09df48467de1,
-        type: 2}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 1758255648}
+      propertyPath: m_Text
+      value: "Welcome and Thank you for playing my game demo. Hopefully this will
+        expain everything you need to know in order to complete it. \nSave does not
+        work\nControls:\n'a','d' : movement left and right\n'space' or '.' : jump\n'right
+        alt' or '/' : shoot\nhold shoot to charge shot\n'w' ,'s' : aim up and down\n'e','q','z,'c',
+        ''d'+'w'' ''a'+'w' : aim diagnol\n'p' : pause and unpause\n'o' : toggle mini
+        map\nPause and click x to quit\n\n\nClick on the checkmark when ready\n\nFor
+        inquiry email me at mitchelldennen@gmail.com"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 501a84fd6c6a84633bbc09df48467de1, type: 2}
   m_IsPrefabParent: 0
@@ -13108,7 +13119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &547268007
 Transform:
   m_ObjectHideFlags: 0
@@ -26692,7 +26703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1391047507
 Transform:
   m_ObjectHideFlags: 0
@@ -34080,8 +34091,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 431.27863, y: 41.617264}
-  m_Size: {x: 5.8078613, y: 381.0465}
+  m_Offset: {x: 431.27863, y: 44.20688}
+  m_Size: {x: 5.8078613, y: 118.08493}
   m_Direction: 0
 --- !u!114 &1914800470
 MonoBehaviour:

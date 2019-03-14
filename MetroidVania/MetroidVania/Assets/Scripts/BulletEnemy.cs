@@ -35,11 +35,11 @@ public class BulletEnemy : MonoBehaviour {
 				if (spriteFlipper.flip) {//will only work on instatiated enemies because of prefab
 					Debug.Log ("shootleft");
 
-					rb.velocity = transform.right /** transform.localScale.x*/ * speed;
+					rb.velocity = transform.right * transform.localScale.x * speed;
 
 				} else if (!(spriteFlipper.flip)) {
 					Debug.Log ("shootright");
-					rb.velocity = -(transform.right)/* * transform.localScale.x */* speed;
+					rb.velocity = -(transform.right) * transform.localScale.x * speed;
 				}
 				Debug.Log ("enemy transform" + transform.localScale.x + "flip" + spriteFlipper.flip);
 				//accounts for shooting in all directions

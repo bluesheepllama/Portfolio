@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour {
 
 		//jumping
 
-		if(Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Space)) { 
+		if(Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Space)) { 
 			controlledRigidbody.drag = normalDrag;
 			controlledJumper.Jump ();
 			Debug.Log ("after jump function");
@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		//~FIXES A BUG
-		if (Input.anyKey == true && !(Input.GetKey (KeyCode.D)) && !(Input.GetKey (KeyCode.A)) && !(Input.GetKey (KeyCode.W))&& !(Input.GetKey (KeyCode.Space)) && !(Input.GetKey (KeyCode.M))) {
+		if (Input.anyKey == true && !(Input.GetKey (KeyCode.D)) && !(Input.GetKey (KeyCode.A)) && !(Input.GetKey (KeyCode.W))&& !(Input.GetKey (KeyCode.Space)) && !(Input.GetKey (KeyCode.Period)) && !(Input.GetKey (KeyCode.M))) {
 			if (groundDetector.isOnGround && !(CanWallClimb ())) { //!(controlledGround.IsOnGroundRayCast())) {
 				temptimer += Time.deltaTime;
 				Debug.Log (temptimer);
