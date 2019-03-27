@@ -13,3 +13,6 @@ Infected Mushroom Game:
 Solar System Project:
 
    A model of the solar system programmed in C++ with the openGL Framework. This project has 2 modes. One mode for viewing purposes in which the distances and sizes of the planets are on a strange scaling more for user friendliness than exactness. The second mode is for accuracy. The size, distances, and orbits are accurately scaled down to get an faithful depiction of our solar system. This mode is not practical for viewing.
+
+Metroid-Vania:
+A Metroid-Vania inspired game with strong emphasis on action and exploring to find new areas and power-ups. I am in love with the genre and wanted to make see what I could add to it. Being a solo project, I have been responsible for designing every aspect from the level design to the scripting, to creating art aspects. This is by far my most ambition and most passionate project to date.
