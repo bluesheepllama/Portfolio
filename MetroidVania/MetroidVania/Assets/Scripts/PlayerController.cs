@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 	public bool haveVenomShot = true;
 	public bool haveGrapple = true;
 	public bool haveShootThroughWalls = true;
+	public bool haveChargeShot = false;
 	public bool haveGrenade;
 	[HideInInspector]
 	public bool isPaused = false;
@@ -187,7 +188,7 @@ public class PlayerController : MonoBehaviour {
 		}
 			if (CanWallClimb() == true) { //walks up slopes
 				controlledRigidbody.drag = normalDrag;
-				controlledRigidbody.gravityScale = 0;
+				controlledRigidbody.gravityScale = 3f;
 				controlledMover.AccelerateInDirection (new Vector2 (1f * transform.localScale.x, 1f));
 		}
 	}
@@ -324,7 +325,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.anyKey == true && !(Input.GetKey (KeyCode.D)) && !(Input.GetKey (KeyCode.A)) && !(Input.GetKey (KeyCode.W))&& !(Input.GetKey (KeyCode.Space)) && !(Input.GetKey (KeyCode.Period)) && !(Input.GetKey (KeyCode.M))) {
 			if (groundDetector.isOnGround && !(CanWallClimb ())) { //!(controlledGround.IsOnGroundRayCast())) {
 				temptimer += Time.deltaTime;
-				Debug.Log (temptimer);
+				//Debug.Log (temptimer);
 				if (temptimer > .01f) {
 					controlledRigidbody.velocity = rbStopVel;
 					temptimer = 0;
@@ -459,7 +460,14 @@ public class PlayerController : MonoBehaviour {
 			}
 	}
 
+	void OnCollisionEnter2D(Collision2D collider) {
+		if (collider.gameObject.tag == "StationaryDestructor") {//wont work for enemies to hit player
+			//Debug.Log("Enemy Pareent, in collinoenter");
+			Vector2 direction =  (transform.position - collider.transform.position);
+			controlledRigidbody.AddForce (direction * 300);
+		}
 
+	}
 
 
 	//get rig of~~~~~~~~~~~~~

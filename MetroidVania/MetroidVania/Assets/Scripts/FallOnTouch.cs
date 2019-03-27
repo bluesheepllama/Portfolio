@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallOnTouch : MonoBehaviour {
 
 	public float timeToDrop = 3f;
+	public float yValueRespawn = 218 ;
 
 	private float dropTimer;
 	private bool shouldDrop = false;
@@ -18,7 +19,7 @@ public class FallOnTouch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameObject.transform.position.y < 218f) {//mess with to "respawn" quicker or slower
+		if (gameObject.transform.position.y < yValueRespawn) {//mess with to "respawn" quicker or slower
 			gameObject.transform.position = new Vector3 (gameObject.transform.position.x,yStartPosition,gameObject.transform.position.z);
 			GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 			shouldDrop = false;
@@ -35,10 +36,13 @@ public class FallOnTouch : MonoBehaviour {
 			
 	}
 	public void OnCollisionEnter2D(Collision2D collision) {
+		if(collision.gameObject.tag == "Player") {
 		//float collisionAngel = Vector3.Angle(transform.position, Collision.collider, transform.position);// Collision.collider.transform.position;
 		float collisiony = collision.collider.transform.position.y - collision.collider.bounds.size.y/2;
-		if(transform.position.y < collisiony) {
-		shouldDrop = true;
+			if (transform.position.y < collisiony) {
+				shouldDrop = true;
+			}
+		}
+
 	}
-}
 }

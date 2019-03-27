@@ -5,13 +5,14 @@ using UnityEngine;
 public class TriggerInstantiateEnemyTrigger : MonoBehaviour {
 
 	public GameObject instantiatEnemiesTrigger;
-
+	public bool setActive = true;
 	private float timer;
-	
+
+
 	// Update is called once per frame
 	void Update () {
 		//if (timer % 300 == 10) {
-			instantiatEnemiesTrigger.SetActive (false);
+			//instantiatEnemiesTrigger.SetActive (false);
 
 		//}
 
@@ -21,7 +22,7 @@ public class TriggerInstantiateEnemyTrigger : MonoBehaviour {
 
 		if (collider.tag == "Player") {
 			//timer = Time.time;
-			instantiatEnemiesTrigger.SetActive (true);
+			instantiatEnemiesTrigger.SetActive (setActive);
 		}
 	}
 }

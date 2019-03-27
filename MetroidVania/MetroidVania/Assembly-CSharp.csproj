@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Blip.cs" />
      <Compile Include="Assets\Scripts\Boss1.cs" />
      <Compile Include="Assets\Scripts\Boss2.cs" />
+     <Compile Include="Assets\Scripts\Boss3.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\BulletEnemy.cs" />
      <Compile Include="Assets\Scripts\CameraFollower.cs" />
@@ -82,9 +83,12 @@
      <Compile Include="Assets\Scripts\Jumper.cs" />
      <Compile Include="Assets\Scripts\JumperEnemy.cs" />
      <Compile Include="Assets\Scripts\KeyDestantiateWall.cs" />
+     <Compile Include="Assets\Scripts\LadyBugEnemyController.cs" />
+     <Compile Include="Assets\Scripts\MantisEnemyController.cs" />
      <Compile Include="Assets\Scripts\MiniMap.cs" />
      <Compile Include="Assets\Scripts\MissleWall.cs" />
      <Compile Include="Assets\Scripts\ModifyCameraSize.cs" />
+     <Compile Include="Assets\Scripts\MosquitoEnemyController.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\Pickup.cs" />
      <Compile Include="Assets\Scripts\PickupGetter.cs" />
@@ -101,6 +105,7 @@
      <Compile Include="Assets\Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\UncoverMap.cs" />
      <Compile Include="Assets\Scripts\VenomShotPower.cs" />
+     <Compile Include="Assets\Scripts\WaterBehavior.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\WebShotPower.cs" />
      <Compile Include="Assets\Scripts\WormEnemyController.cs" />

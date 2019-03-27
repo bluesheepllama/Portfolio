@@ -25,13 +25,15 @@ public class Destructable : MonoBehaviour {
 	private float venomCounter;
 	private float venomLength = 2f;
 
+	private UIController uiController;
 
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		playerController = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>();
 		hitPoints = maximumHitpoints;
-
+		uiController = GameObject.Find ("Canvas").GetComponent<UIController> ();
+		//player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	void Update () {
@@ -93,6 +95,8 @@ public class Destructable : MonoBehaviour {
 	private void Die() {
 		//player.SetActive (false);
 		if (player.tag == "Player") {
+			//uiController.PauseGame ();
+			//pause game and ask if wants to restart or quit
 			gameObject.SetActive (false);
 			Invoke ("RestartScene", 3f);
 		}

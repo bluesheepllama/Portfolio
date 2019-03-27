@@ -33,6 +33,7 @@ public class RhinoBeetleController : EnemyParent {
 		patrolPoints [1] = new Vector2 (transform.position.x-patrolOffset,transform.position.y);
 		patrolPoints [2] = new Vector2 (transform.position.x+patrolOffset,transform.position.y);
 		rigidBody = GetComponent<Rigidbody2D> ();
+		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 
 		moveToIndex = 0;
 		if (patrolPoints.Count > 0) {

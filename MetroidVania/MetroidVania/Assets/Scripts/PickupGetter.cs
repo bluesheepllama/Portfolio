@@ -33,9 +33,9 @@ public class PickupGetter : MonoBehaviour {
 				Debug.Log("shrink enabled: ");
 
 				pc.shrinkEnabled = true;
-				uiController.PowerUpAquire (1);
+				//uiController.PowerUpAquire (1);
 				Debug.Log("PlayAudio");
-				soundController.audio1.Play();
+				//soundController.audio1.Play();
 
 				//change shrink bool
 			}
@@ -47,9 +47,9 @@ public class PickupGetter : MonoBehaviour {
 			if (jumper && gameObject.tag == "Player") {
 				pc.haveDoubleJump = true;
 				Debug.Log ("Jump Upgrade" );
-				uiController.PowerUpAquire (3); // change to correct Ui------------------------------
+				//uiController.PowerUpAquire (3); // change to correct Ui------------------------------
 				Debug.Log("PlayAudio");
-				soundController.audio1.Play();
+				//soundController.audio1.Play();
 			}
 		}
 
@@ -63,6 +63,19 @@ public class PickupGetter : MonoBehaviour {
 
 				PC.haveMissle = true;
 				uiController.PowerUpAquire (2);
+				Debug.Log("PlayAudio");
+				soundController.audio1.Play();
+				//change shrink bool
+			}
+		}
+		//charge shot
+		if (pickupType == PickupType.ChargeShot) {
+			PlayerController PC = GetComponent<PlayerController> ();
+			if (PC) {
+				Debug.Log("charge shot enabled: ");
+
+				PC.haveChargeShot = true;
+				uiController.PowerUpAquire (6);
 				Debug.Log("PlayAudio");
 				soundController.audio1.Play();
 				//change shrink bool
@@ -128,9 +141,9 @@ public class PickupGetter : MonoBehaviour {
 			if (jumper && gameObject.tag == "Player") {
 				jumper.jumpImpulse += jumper.jumpUpgradeAmount;
 				//Debug.Log ("Jump Upgrade" );
-				uiController.PowerUpAquire (0);
+				//uiController.PowerUpAquire (0);
 				Debug.Log("PlayAudio");
-				soundController.audio1.Play();
+				//soundController.audio1.Play();
 				//Destroy(gameObject);//maybe change 
 			}
 		}

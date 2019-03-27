@@ -62,7 +62,7 @@ public class Weapon : MonoBehaviour {
 
 		}
 
-		if (charging == true)
+		if (charging == true && pc.haveChargeShot)
 		{
 			Transform temp;
 			//chargingSprite.color.

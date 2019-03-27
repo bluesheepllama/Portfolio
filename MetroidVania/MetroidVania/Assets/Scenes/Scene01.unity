@@ -3614,6 +3614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1478046095}
+  setActive: 1
 --- !u!70 &133212906
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6685,6 +6686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 2132571374}
+  setActive: 1
 --- !u!70 &318229077
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -14941,6 +14943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 441070076}
+  setActive: 1
 --- !u!70 &667386970
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -16526,6 +16529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 189112217}
+  setActive: 1
 --- !u!70 &748956903
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -19237,6 +19241,11 @@ Prefab:
       propertyPath: haveMissle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114412139424651644, guid: 415fbf68830cb4217b95f19b7ac46755,
+        type: 2}
+      propertyPath: haveChargeShot
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
   m_IsPrefabParent: 0
@@ -21610,6 +21619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 899431627}
+  setActive: 1
 --- !u!70 &1058622507
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -21667,6 +21677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1914800467}
+  setActive: 1
 --- !u!70 &1059769745
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -23520,6 +23531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1224878942}
+  setActive: 1
 --- !u!70 &1141043982
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -25593,6 +25605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 866590281}
+  setActive: 1
 --- !u!70 &1303536258
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -25650,6 +25663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1772913721}
+  setActive: 1
 --- !u!70 &1311930309
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -30411,6 +30425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1041643064}
+  setActive: 1
 --- !u!70 &1614321794
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -31960,6 +31975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1776992248}
+  setActive: 1
 --- !u!70 &1728496270
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -32095,6 +32111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1057399097}
+  setActive: 1
 --- !u!70 &1736848735
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -32152,6 +32169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1865249200}
+  setActive: 1
 --- !u!70 &1746243442
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -32214,6 +32232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 515692448}
+  setActive: 1
 --- !u!70 &1756897592
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -33171,6 +33190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 1345416632}
+  setActive: 1
 --- !u!70 &1821908284
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -34536,6 +34556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiatEnemiesTrigger: {fileID: 725531100}
+  setActive: 1
 --- !u!70 &1923261780
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

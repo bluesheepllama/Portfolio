@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1635330569412590}
   maximumHitpoints: 3
-  hitPoints: 1
+  hitPoints: 3
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 1733296799385722, guid: 37409f3bdcf05415cb936b154970171e,

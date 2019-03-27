@@ -148,7 +148,7 @@ public class UIController : MonoBehaviour {
 			powerUpDescription.text = "Wellness Upgrade: This Upgrade Gives you 50 extra wellness";
 			break;
 		case 6:
-			powerUpDescription.text = "";
+			powerUpDescription.text = "Charge Shot: Hold shoot to charge your shot, dealing more damage. Also lets you break more walls";
 			break;
 		default :
 			break;

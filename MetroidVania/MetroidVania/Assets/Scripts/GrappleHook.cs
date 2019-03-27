@@ -57,15 +57,19 @@ public class GrappleHook : MonoBehaviour {
 		
 	}
 	public void StartGrapple () {
-		RaycastHit2D hit = Physics2D.Raycast (grapplePoint.position,grapplePoint.right);
+		RaycastHit2D hit = Physics2D.Raycast (grapplePoint.position,grapplePoint.up);
 
 		if (hit) {
-			Debug.Log (hit.transform.name);
+			Debug.Log ("grapple target" + hit.transform.name);
 		}
 		//Vector3 point = new Vector3 (grapplePoint.right, grapplePoint.transform.position.y, grapplePoint.transform.position.z);
-		target = Camera.main.ScreenToWorldPoint (grapplePoint.right);//(Input.mousePosition);// this is why
+		//target = Camera.main.ScreenToWorldPoint (grapplePoint.up);//(Input.mousePosition);// this is why
+		target = Camera.main.ScreenToWorldPoint (hit.transform.up);//(Input.mousePosition);// this is why
+
 		target.z = transform.position.z;
-		RaycastHit2D rayCastHit = Physics2D.Raycast (transform.position, target - transform.position, maxGrappleDistance, layerMask);
+		//RaycastHit2D rayCastHit = Physics2D.Raycast (transform.position, target - transform.position, maxGrappleDistance, layerMask);
+		RaycastHit2D rayCastHit = Physics2D.Raycast (transform.position, transform.up, maxGrappleDistance, layerMask); // changes grapple position
+
 		if (rayCastHit.collider) {
 
 			distanceJoint.enabled = true;

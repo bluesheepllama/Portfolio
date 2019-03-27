@@ -136,7 +136,7 @@ public class Boss2 : EnemyParent {
 		Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D> ();
 		bulletBody.velocity = bullet.transform.forward * bulletSpeed;//maybe not needed
 		bulletSpawnPoint.LookAt (target);
-		//Destroy (bullet, 6f);
+		Destroy (bullet, 4f);
 
 	}
 

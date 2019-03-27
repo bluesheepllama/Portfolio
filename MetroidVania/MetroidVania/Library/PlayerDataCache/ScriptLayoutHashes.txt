@@ -21,6 +21,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 c9305cc9439b05a1329887cd04a47a1c Assembly-CSharp.dll:.Healer
 eff0c1c74b335419161f3b726152abe3 Assembly-CSharp.dll:.SpriteVelocityFlipper
 a860af161db9b484fb8d80fbe06b2f13 Assembly-CSharp.dll:.FlyingShooterController
+e5fc3680f7cab3e38a8378a45029e7eb Assembly-CSharp.dll:.LadyBugEnemyController
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -126,7 +127,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 d2c3cdd9cd95d9a1efa17ac4e0a8ff02 Assembly-CSharp.dll:.CameraFollower
 076bb988ca6bfe97eb8f19a2f938657f Assembly-CSharp.dll:.Blip
-f0d2b1e7e66bc91576843260f25dc2f4 Assembly-CSharp.dll:.PlayerController
+72043c911958986b65af275ad902822a Assembly-CSharp.dll:.PlayerController
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 72e801db16188fa6713b756a90d990ef Assembly-CSharp.dll:.EnemyParent
@@ -173,7 +174,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
-27b220fa68562613a003ebdb70f3625d Assembly-CSharp.dll:.FallOnTouch
+f110087628f5c8781a6a74e21b3fed0c Assembly-CSharp.dll:.FallOnTouch
 efd5e8a1ac9e5172887fe8cbaaf49b4f Assembly-CSharp.dll:.GrappleHook
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -190,5 +191,6 @@ bf06f2eadccbcc2d96c0ade4d9efa512 Assembly-CSharp.dll:.Destructable
 8dd931a60d9b61d069e681b930de7300 Assembly-CSharp.dll:.ModifyCameraSize
 aa472e2e40d9afd166cbe445cfa724a9 Assembly-CSharp.dll:.Demo
 e1737f2259f572f6125f3186bf5ea1a9 Assembly-CSharp.dll:.SoundController
-ea44b56ab2be5cc2051e0b3829fc2c7f Assembly-CSharp.dll:.TriggerInstantiateEnemyTrigger
+4556f3613a136d43c62f55efec7d32ef Assembly-CSharp.dll:.TriggerInstantiateEnemyTrigger
 3d144cf9009f34906fe23f5f5d32d430 Assembly-CSharp.dll:.WormEnemyController
+413aa684e7bf34655da9df1a3d64da62 Assembly-CSharp.dll:.MosquitoEnemyController
