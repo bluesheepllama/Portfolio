@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Healer : MonoBehaviour {
 
-	public int heal = 1;
+	public int heal = 30;
 
 	public void OnCollisionEnter2D(Collision2D collision) {
 

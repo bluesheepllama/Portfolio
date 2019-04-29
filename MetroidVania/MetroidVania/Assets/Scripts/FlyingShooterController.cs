@@ -84,7 +84,7 @@ public class FlyingShooterController : EnemyParent {
 					if (fireTimer >= fireRate) {
 						Fire ();
 					}
-					//turret.transform.LookAt (target);
+					turret.transform.LookAt (target);
 				}
 			}
 
@@ -125,12 +125,9 @@ public class FlyingShooterController : EnemyParent {
 		fireTimer = 0f;
 		GameObject bullet = Instantiate (bulletPreFab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation) as GameObject;
 		bullet.SendMessage ("PassedValue", svf);
-		bullet.SendMessage ("PassedValue2", followPlayer);
-
-		//forward and left
 		Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D> ();
 		bulletBody.velocity = bullet.transform.forward * bulletSpeed;//maybe not needed
-		bullet.transform.LookAt(target);
+
 	}
 
 	private Vector3 GetDirection() {

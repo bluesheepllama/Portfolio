@@ -62,8 +62,7 @@ public class Weapon : MonoBehaviour {
 
 		}
 
-		if (charging == true && pc.haveChargeShot)
-		{
+		if (charging == true && pc.haveChargeShot && pc.weaponIndex != 5) {
 			Transform temp;
 			//chargingSprite.color.
 			timer += Time.deltaTime;
@@ -203,6 +202,25 @@ public class Weapon : MonoBehaviour {
 		//check to see which ammo is equipped, List of bullet prefabs with diff textures and damages
 		//Debug.Log("currentWeapon index: " + currentWeaponIndex);
 		//Debug.Log("shooting");
+		Vector2 scatter2 = new Vector2 (firePoint.position.x, firePoint.position.y+1f);
+		Vector2 scatter3 = new Vector2 (firePoint.position.x, firePoint.position.y-1f);
+		Vector2 scatter4 = new Vector2 (firePoint.position.x, firePoint.position.y+.5f);
+		Vector2 scatter5 = new Vector2 (firePoint.position.x, firePoint.position.y-.5f);
+		if (pc.weaponIndex == 0) {
+			if (pc.scatterUpgradeAmount > 1) {
+				ScatterShot (-1);
+			}
+			if (pc.scatterUpgradeAmount > 2) {
+				ScatterShot (1);
+			}
+			if (pc.scatterUpgradeAmount > 3) {
+				ScatterShot (.5f);
+
+			}
+			if (pc.scatterUpgradeAmount > 4) {
+				ScatterShot (-.5f);
+			}
+		}
 		GameObject bulletObject = Instantiate (bulletPrefab[currentWeaponIndex], firePoint.position, firePoint.rotation);
 		bulletObject.SendMessage("PassedValue", pc); // passes the player controller to bullet
 		//scatter shot
@@ -210,11 +228,8 @@ public class Weapon : MonoBehaviour {
 			Destroy (bulletObject, 2.4f);
 		} else {
 			Destroy (bulletObject, 1.22f);
-
 		}
-		if(currentWeaponIndex == 3) {// put in function
-			ScatterShot();
-		}
+		
 		//spider grenade
 		Vector3 bulletScale = bulletObject.transform.localScale;
 		bulletScale.x *= (transform.localScale.x >= 0) ? 1 : -1;
@@ -237,28 +252,25 @@ public class Weapon : MonoBehaviour {
 			
 	}
 
-	//Scattershot, shoots two extra bullets
-	private void ScatterShot() {
-
-		Vector2 scatter1 = new Vector2 (firePoint.position.x, firePoint.position.y+1);
-		Vector2 scatter2 = new Vector2 (firePoint.position.x, firePoint.position.y-1);
-		if(Input.GetKey(KeyCode.W)) {//get key down if bugged
-			scatter1 = new Vector2 (firePoint.position.x+1, firePoint.position.y);
-			scatter2 = new Vector2 (firePoint.position.x-1, firePoint.position.y);
+	//Scattershot, shoots extra bullets
+	private void ScatterShot(float offset) {
+		Vector2 scatter1 = new Vector2 (firePoint.position.x, firePoint.position.y+offset);
+		if(Input.GetKey(KeyCode.W)) {
+			scatter1 = new Vector2 (firePoint.position.x+offset, firePoint.position.y);
 		}
-
-		GameObject bulletObjectScatter1 = Instantiate (bulletPrefab[currentWeaponIndex], scatter1, firePoint.rotation);
-		GameObject bulletObjectScatter2 = Instantiate (bulletPrefab[currentWeaponIndex], scatter2, firePoint.rotation);
-
-		bulletObjectScatter1.SendMessage("PassedValue", pc); // passes the player controller to bullet
-		bulletObjectScatter2.SendMessage("PassedValue", pc); // passes the player controller to bullet
-
-		Vector3 bulletScale = bulletObjectScatter1.transform.localScale;
+		if(Input.GetKey(KeyCode.S)) {
+			scatter1 = new Vector2 (firePoint.position.x+offset, firePoint.position.y);
+		}
+		GameObject bulletObjectScatter = Instantiate (bulletPrefab[currentWeaponIndex], scatter1, firePoint.rotation);
+		bulletObjectScatter.SendMessage("PassedValue", pc); // passes the player controller to bullet
+		Vector3 bulletScale = bulletObjectScatter.transform.localScale;
 		bulletScale.x *= (transform.localScale.x >= 0) ? 1 : -1;
-		bulletObjectScatter1.transform.localScale = bulletScale;
-		bulletObjectScatter2.transform.localScale = bulletScale;
-
-
+		bulletObjectScatter.transform.localScale = bulletScale;
+		if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D)) {
+			Destroy (bulletObjectScatter, 2.4f);
+		} else {
+			Destroy (bulletObjectScatter, 1.22f);
+		}
 	}
 
 	private void ChargeColorChange() { // why????????

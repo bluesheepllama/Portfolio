@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7a7b3c5c524754dac994c55ad0f627ff
-timeCreated: 1551398625
+timeCreated: 1556044301
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -68,7 +68,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 508
+  spritePixelsToUnits: 500
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -201,7 +201,7 @@ TextureImporter:
         serializedVersion: 2
         x: 506
         y: 1544
-        width: 506
+        width: 504
         height: 504
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -227,9 +227,9 @@ TextureImporter:
       name: TileMapDesert12560_8
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1542
         y: 1534
-        width: 508
+        width: 502
         height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -341,7 +341,7 @@ TextureImporter:
         serializedVersion: 2
         x: 512
         y: 520
-        width: 503
+        width: 504
         height: 509
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

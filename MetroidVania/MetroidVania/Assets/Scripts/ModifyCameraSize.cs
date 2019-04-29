@@ -34,6 +34,13 @@ public class ModifyCameraSize : MonoBehaviour {
 
 		}
 	}
+	void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "Player") {
+			cam.orthographicSize = cameraNewSize;
+		}
+
+	}
 
 	private void ChangeDamp() {
 		/*Debug.Log ("Changing damppening to 0;");

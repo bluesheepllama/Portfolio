@@ -76,9 +76,9 @@ public class Destructable : MonoBehaviour {
 	}
 
 	public void Heal(float healAmount) {
-
-		healAmount = Random.Range (healAmountMin,healAmountMax);
-		ModifyHitPoints (healAmount);
+		float heal = Random.Range (healAmountMin,healAmountMax) + healAmount;;
+		//healAmount = Random.Range (healAmountMin,healAmountMax);
+		ModifyHitPoints (heal);
 
 	}
 	//changed void to int

@@ -58,7 +58,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084397692896392}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: 364.1, y: 134.1, z: -1.7469249}
   m_LocalScale: {x: 1.5, y: 1.5, z: 21.110434}
   m_Children:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopDistance: 3.5
   currentMoveToPoint: {x: 0, y: 0}
-  hitForce: 1000
+  hitForce: 500
   isFlying: 0
   flyingOffset: 10
   controlledMover: {fileID: 0}

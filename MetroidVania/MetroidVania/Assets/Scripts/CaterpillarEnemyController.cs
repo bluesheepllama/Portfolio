@@ -27,6 +27,7 @@ public class CaterpillarEnemyController : EnemyParent {
 	}
 
 	public void Start() {
+		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 		animatorController = GetComponent<Animator> ();
 		controlledMover = GetComponent<Mover> ();
 		patrolPoints [0] = new Vector2 (transform.position.x,transform.position.y);

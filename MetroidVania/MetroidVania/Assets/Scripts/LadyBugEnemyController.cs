@@ -115,7 +115,7 @@ public class LadyBugEnemyController : EnemyParent {
 			ladyTransform.rotation = temp;
 			timer = Time.time;
 			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
-			rb.gravityScale = 2;
+			rb.gravityScale = 3f;
 
 		}
 	}

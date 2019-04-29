@@ -52,16 +52,27 @@ public class PickupGetter : MonoBehaviour {
 				//soundController.audio1.Play();
 			}
 		}
+		if (pickupType == PickupType.WallClimbPower) {
+			if (pc && gameObject.tag == "Player") {
+				pc.haveWallClimb = true;
+				Debug.Log ("wallClimb Upgrade" );
+				//uiController.PowerUpAquire (3); // change to correct Ui------------------------------
+				Debug.Log("PlayAudio");
+				//soundController.audio1.Play();
+			}
+		}
+
+
 
 		//new weapons
 
 		//missle aquire
 		if (pickupType == PickupType.MisslePower) {
-			PlayerController PC = GetComponent<PlayerController> ();
-			if (PC) {
+			//PlayerController pc = GetComponent<PlayerController> ();
+			if (pc) {
 				Debug.Log("missle enabled: ");
 
-				PC.haveMissle = true;
+				pc.haveMissle = true;
 				uiController.PowerUpAquire (2);
 				Debug.Log("PlayAudio");
 				soundController.audio1.Play();
@@ -70,11 +81,11 @@ public class PickupGetter : MonoBehaviour {
 		}
 		//charge shot
 		if (pickupType == PickupType.ChargeShot) {
-			PlayerController PC = GetComponent<PlayerController> ();
-			if (PC) {
+			//PlayerController pc = GetComponent<PlayerController> ();
+			if (pc) {
 				Debug.Log("charge shot enabled: ");
 
-				PC.haveChargeShot = true;
+				pc.haveChargeShot = true;
 				uiController.PowerUpAquire (6);
 				Debug.Log("PlayAudio");
 				soundController.audio1.Play();
@@ -83,11 +94,11 @@ public class PickupGetter : MonoBehaviour {
 		}
 		//webshot aquire
 		if (pickupType == PickupType.WebShotPower) {
-			PlayerController PC = GetComponent<PlayerController> ();
-			if (PC) {
+			//PlayerController pc = GetComponent<PlayerController> ();
+			if (pc) {
 				Debug.Log("webshot enabled: ");
 
-				PC.haveWebShot = true;
+				pc.haveWebShot = true;
 				uiController.PowerUpAquire (4);
 				Debug.Log("PlayAudio");
 				soundController.audio1.Play();
@@ -96,23 +107,25 @@ public class PickupGetter : MonoBehaviour {
 		}
 		//sccattershot aquire
 		if (pickupType == PickupType.ScattershotPower) {
-			PlayerController PC = GetComponent<PlayerController> ();
-			if (PC) {
+			//PlayerController pc = GetComponent<PlayerController> ();
+			if (pc) {
 				Debug.Log("scattershot enabled: ");
 
-				PC.haveScatterShot = true;
-				uiController.PowerUpAquire (6);
+				//pc.haveScatterShot = true;
+				pc.scatterUpgradeAmount ++;
+				//
+				//uiController.PowerUpAquire (6);
 				Debug.Log("PlayAudio");
-				soundController.audio1.Play();
+				//soundController.audio1.Play();
 				//change shrink bool
 			}
 		}
 		if (pickupType == PickupType.VenomPower) {
-			PlayerController PC = GetComponent<PlayerController> ();
-			if (PC) {
+			//PlayerController pc = GetComponent<PlayerController> ();
+			if (pc) {
 				Debug.Log("scattershot enabled: ");
 
-				PC.haveVenomShot = true;
+				pc.haveVenomShot = true;
 				uiController.PowerUpAquire (5);
 				Debug.Log("PlayAudio");
 				soundController.audio1.Play();
@@ -126,13 +139,13 @@ public class PickupGetter : MonoBehaviour {
 			if (destructable && gameObject.tag == "Player") {
 				//uiController.PowerUpAquire (5);
 
-				destructable.maximumHitpoints+= 50;//change to heal variable
+				destructable.maximumHitpoints+= 25;//change to heal variable
 				Debug.Log ("Health Upgrade" );
 				//Destroy(gameObject);//maybe change 
 				Debug.Log("PlayAudio");
 				soundController.audio1.Play();
 				uiController.PauseGame ();
-				uiController.powerUpDescription.text = "Wellness has Increased by 50";
+				uiController.powerUpDescription.text = "Maximum wellness has Increased by 25";
 
 			}
 		}
@@ -148,7 +161,7 @@ public class PickupGetter : MonoBehaviour {
 			}
 		}
 		if (pickupType == PickupType.MissleUpgrade) {
-			pc.maxMissileCount += 5;
+			pc.maxMissileCount += 4;
 			//uiController.PowerUpAquire (4);
 
 			Debug.Log ("Missile Upgrade" );
@@ -157,7 +170,27 @@ public class PickupGetter : MonoBehaviour {
 			uiController.PauseGame ();
 			uiController.powerUpDescription.text = "Missile Capacity Increased by 5";
 		}
+		if (pickupType == PickupType.GrenadeUpgrade) {
+			pc.maxMissileCount += 2;
+			//uiController.PowerUpAquire (4);
 
+			Debug.Log ("Grenade Upgrade" );
+			Debug.Log("PlayAudio");
+			soundController.audio1.Play();
+			uiController.PauseGame ();
+			uiController.powerUpDescription.text = "Grenade Capacity Increased by 2";
+		}
+
+		if (pickupType == PickupType.DamageUpgrade) {
+			pc.bulletDmg *= 1.1f;
+			//uiController.PowerUpAquire (4);
+
+			Debug.Log ("Damge Upgrade" );
+			Debug.Log("PlayAudio");
+			soundController.audio1.Play();
+			uiController.PauseGame ();
+			uiController.powerUpDescription.text = "Bullet Damage Increased";
+		}
 
 		//Inventory
 		if (pickupType == PickupType.Health) {
@@ -174,6 +207,11 @@ public class PickupGetter : MonoBehaviour {
 			if(pc.missileCount < pc.maxMissileCount)
 			pc.missileCount += 1;
 		}
+		if (pickupType == PickupType.GrenadeAmmo) {
+			if(pc.missileCount < pc.maxMissileCount)
+				//pc.grenadeCount += 1;,
+				Debug.Log("Grenade ammo pickup");
+		}
 			
 		/*
 		if (pickupType == PickupType.GrappleHook) {
@@ -184,11 +222,12 @@ public class PickupGetter : MonoBehaviour {
 			}
 		}*/
 
-		if (pickupType == PickupType.CheckPoint) {
+		/*if (pickupType == PickupType.CheckPoint) {
 			checkPointcount++;
 			Debug.Log ("checkPoint count: " + checkPointcount);
 
-		}
+		}*/
+
 		if (pickupType == PickupType.Key) {
 			/*KeyDestantiateWall kDW = GetComponent<KeyDestantiateWall>();
 			kDW.DestantiateWall ();*/
@@ -200,7 +239,7 @@ public class PickupGetter : MonoBehaviour {
 	}
 		
 
-	public int GetPickupCount(PickupType pickupType) {
+	public int GetPickupcount(PickupType pickupType) {
 
 		int count = 0;
 		for (int i = 0; i < pickups.Count; i++) {

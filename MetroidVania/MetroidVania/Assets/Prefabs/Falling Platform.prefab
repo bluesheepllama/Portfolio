@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114936225822383048}
   m_Layer: 0
   m_Name: Falling Platform
-  m_TagString: Ground
+  m_TagString: FallingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,9 +36,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450145909023774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.41, y: -6.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.908, y: 268.41, z: -7.0594735}
+  m_LocalScale: {x: 2.5898876, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!61 &61113670280113712
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -79,8 +79,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.65, y: 5.65}
-    newSize: {x: 5.65, y: 5.64}
+    oldSize: {x: 5.62, y: 5.62}
+    newSize: {x: 1.0019609, y: 1.0039216}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25dc5ea4292142b2b12e47a47ac110c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDrop: 3
+  timeToDrop: 0.5
+  yValueRespawn: 210
 --- !u!212 &212274328974081016
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -134,12 +135,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab46400a807d242c8a0d639fd6d45d6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a98cd85dd2c7f4c299ed714f3d5e67b0, type: 3}
   m_Color: {r: 1, g: 0.6691177, b: 0.6691177, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.65, y: 5.64}
+  m_Size: {x: 1.0019609, y: 1.0039216}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

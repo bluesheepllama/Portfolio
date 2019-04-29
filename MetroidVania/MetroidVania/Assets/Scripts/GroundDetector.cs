@@ -7,16 +7,21 @@ public class GroundDetector : MonoBehaviour {
 	public LayerMask rayCastLayerMask;
 	public bool isOnGround;
 	public bool isOnSlopedGround;
+	public bool isOnFallingPlatform = false;
 	[HideInInspector]
 	public Vector2 colliderCenter;
 	[HideInInspector]
 	public Vector2 collisionSize;
 
 	private PlayerController pc;
+	private Jumper jumper;
 	private Collision2D collision2D;
+	private Rigidbody2D rb;
 
 	public void Start() {
 		pc = GetComponent<PlayerController> ();
+		jumper = GetComponent<Jumper> ();
+		rb = GetComponent<Rigidbody2D> ();
 		BoxCollider2D myCollider = GetComponent<BoxCollider2D> ();//only work
 		if (myCollider) {
 			collisionSize = myCollider.size;
@@ -33,14 +38,30 @@ public class GroundDetector : MonoBehaviour {
 
 	public void OnCollisionStay2D(Collision2D collision) {//adds overrhead  
 		collision2D = collision;
-			
+
+
+
 		if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "SlopedGround") {
 			isOnGround = true;
+			isOnFallingPlatform = false;
+
 			//raise gravity to stop wall slowing?
 		}
 		if (collision.gameObject.tag == "SlopedGround") {
 			isOnSlopedGround = true;
+			isOnFallingPlatform = false;
+
 		}
+		if (collision.gameObject.tag == "FallingPlatform") {
+			isOnFallingPlatform = true;
+		}
+
+		if (IsOnGroundRay ()) {
+			isOnGround = true;
+		}else {
+				isOnGround = false;
+			}
+			
 	}
 
 	public void OnCollisionExit2D(Collision2D collision) {
@@ -108,16 +129,34 @@ public class GroundDetector : MonoBehaviour {
 		// Does the ray intersect any objects excluding the player layer
 		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, rayCastLayerMask))
 		{
-			return true;
+			//jumper.doublecount = 0;
 			Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
 			Debug.Log("Did Hit");
+			return true;
+
 		}
 		else
 		{
-			return false;
 			Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1000, Color.white);
 			Debug.Log("Did not Hit");
+			return false;
+
 		}
 	}
+	private bool IsOnGroundRay() {
+		float directionNormal = rb.velocity.x / Mathf.Abs (rb.velocity.x);
+		//Vector2 rayCastOrigin = (Vector2)(transform.position + .5f * transform.right * directionNormal) + groundDetector.colliderCenter;
+		Vector2 rayCastOrigin = (Vector2)(transform.right * directionNormal);// + groundDetector.colliderCenter;
+		float rayCastDistance =  2f;
+		if (transform.localScale.x < 0) 
+		{
+			return Physics2D.Raycast (transform.position, Vector2.down, rayCastDistance, rayCastLayerMask);
+		}
+		else 
+		{
+			return Physics2D.Raycast (transform.position, Vector2.down, rayCastDistance,rayCastLayerMask);
+		}
+	}
+
 }
 	

@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour {
 	public int weaponIndex;
 	public float fireTimer;
 
+	public int scatterUpgradeAmount =1;
+	public float bulletDmg = 1f;
+
+	private float jumptimer = 0;
 
 	public void Awake() {
 		controlledMover = GetComponent<Mover> ();
@@ -104,6 +108,11 @@ public class PlayerController : MonoBehaviour {
 			
 			controlledRigidbody.drag = normalDrag;// here or bottom of function?
 
+			if (CanWallClimb ()) {//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~trying to fix wall stticking 
+				controlledRigidbody.drag = 0;
+				Debug.Log ("anykey == true, apply normal drag velocity" + controlledRigidbody.velocity.x + ", " + controlledRigidbody.velocity.y);
+			}
+		
 			/*if (!controlledAnimator) {
 				controlledAnimator.SetBool ("Walking", true);
 			}*/
@@ -114,6 +123,7 @@ public class PlayerController : MonoBehaviour {
 					controlledRigidbody.velocity = rbStopVel;
 
 				}
+
 				if (groundDetector.isOnSlopedGround == true) { //walks up slopes
 					controlledMover.AccelerateInDirection (new Vector2 (1f, 1f));
 
@@ -201,33 +211,33 @@ public class PlayerController : MonoBehaviour {
 
 		//jumping
 
-		if(Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Space)) { 
-			controlledRigidbody.drag = normalDrag;
-			controlledJumper.Jump ();
-			Debug.Log ("after jump function");
-			if (controlledJumper.doublecount > 1) {
-				controlledJumper.doublecount = 0;
-			}
-			/*if (groundDetector.isOnGround) {// && controlledGround.IsOnGroundRayCast()) {
-				stopDrag = 100;
-				controlledRigidbody.drag = stopDrag;
-			}*/
+		//float jumptimer = 0;
 
+		//check if on ground
+		if((Input.GetKeyDown(KeyCode.Period) || Input.GetKeyDown(KeyCode.Space)) && !groundDetector.isOnFallingPlatform) { 
+			controlledRigidbody.drag = normalDrag;
+			jumptimer = 0;
+			controlledJumper.Jump ();
+			//Debug.Log ("after jump function");
+
+			if (controlledJumper.doublecount > 1) {
+				//controlledJumper.doublecount = 0;
+			}
 				
 		}
-		/*if (Input.GetKey (KeyCode.Space)) { 
-			if (groundDetector.isOnGround && controlledGround.IsOnGroundRayCast ()) {
-				stopDrag = 100;
+		//**FIXES A BUG**
+		if ((Input.GetKey (KeyCode.Period) || Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.M))) { 
+			//Debug.Log ("jump key pressed " + jumptimer);
+			jumptimer += Time.deltaTime;
+			//Debug.Log (groundDetector.isOnGround);
+			if (groundDetector.isOnGround && jumptimer > .7f && groundDetector.isOnGround) {// && controlledGround.IsOnGroundRayCast()) {
+				//stopDrag = 100;
+				controlledRigidbody.velocity = rbStopVel;
 				controlledRigidbody.drag = stopDrag;
-			} else {
-				controlledRigidbody.drag = normalDrag;
-
+				//Debug.Log ("int jumptimer timer " + jumptimer);
+				jumptimer = 0;
 			}
-
-		}*/
-			
-
-
+		}
 		//shrink
 		if(Input.GetKeyDown(KeyCode.X)) {
 			if (shrinkEnabled) {
@@ -258,7 +268,7 @@ public class PlayerController : MonoBehaviour {
 		if (controlledWeapon.currentWeaponIndex == 1)
 			uiController.missileSprite.color = alpha100;
 		else 
-			uiController.missileSprite.color = alpha20;
+			//uiController.missileSprite.color = alpha20;
 		
 		if (Input.GetKeyDown(KeyCode.LeftShift)) {
 			if (haveMissle && missileCount > 0) {
@@ -377,7 +387,7 @@ public class PlayerController : MonoBehaviour {
 				controlledRigidbody.gravityScale = 4.4f;
 			}
 
-			controlledMover.maximumSpeed = 20f;
+			//controlledMover.maximumSpeed = 20f;
 
 
 		}

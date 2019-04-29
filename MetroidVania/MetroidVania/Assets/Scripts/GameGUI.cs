@@ -40,13 +40,13 @@ public class GameGUI : MonoBehaviour {
 
 
 
-		if(playerPickupGetter.GetPickupCount(PickupType.Goal) >= goalCountToWin) {
+//		if(playerPickupGetter.GetPickupcount(PickupType.Goal) >= goalCountToWin) {
 			//// shows win screen with no animation, to show animation, check WinScreen and uncheck the panel,button,and text
 			//winScreen.SetActive (true);
 			//
 			//winScreenAnimator.SetTrigger ("Show");
-			Debug.Log ("You win");
-		}
+			//Debug.Log ("You win");
+		//}
 		if(playerHealth.hitPoints <= 0 || player.transform.position.y < -40f) {//change if the map goes below value
 			//loseScreen.SetActive (true);
 			//invoke repeating here for 3 seconds
@@ -100,7 +100,7 @@ public class GameGUI : MonoBehaviour {
 
 	/*
 	private void UpdateScoreUI() {
-		int score = playerPickupGetter.GetPickupCount (PickupType.Money);
+		int score = playerPickupGetter.GetPickupcount (PickupType.Money);
 		textScore.text = (score).ToString() ;
 
 	}

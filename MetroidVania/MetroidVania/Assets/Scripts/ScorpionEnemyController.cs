@@ -44,6 +44,7 @@ public class ScorpionEnemyController : EnemyParent {
 
 	public void Start() {
 		animatorController = GetComponent<Animator> ();
+
 		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 		patrolPoints [0] = new Vector2 (transform.position.x,transform.position.y);
 		patrolPoints [1] = new Vector2 (transform.position.x-patrolOffset,transform.position.y);

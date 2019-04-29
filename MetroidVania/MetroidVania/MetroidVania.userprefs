@@ -1,41 +1,52 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GrappleHook.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LadyBugEnemyController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Destructable.cs" Line="35" Column="3" />
+      <File FileName="Assets/Scripts/GroundDetector.cs" Line="150" Column="29" />
+      <File FileName="Assets/Scripts/Destructable.cs" Line="95" Column="22" />
+      <File FileName="Assets/Scripts/MantisEnemyController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/BulletEnemy.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GrappleHook.cs" Line="71" Column="141" />
+      <File FileName="Assets/Scripts/GrappleHook.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Bullet.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Mover.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Pickup.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PickupGetter.cs" Line="146" Column="5" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="383" Column="4" />
-      <File FileName="Assets/Scripts/Jumper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PickupGetter.cs" Line="200" Column="17" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="221" Column="6" />
+      <File FileName="Assets/Scripts/Jumper.cs" Line="54" Column="82" />
       <File FileName="Assets/Scripts/SpriteVelocityFlipper.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Healer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GroundDetector.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Healer.cs" Line="14" Column="11" />
       <File FileName="Assets/Scripts/WebShotPower.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SnailEnemyController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GameGUI.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Destructor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FallingEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FallOnTouch.cs" Line="16" Column="17" />
+      <File FileName="Assets/Scripts/FallOnTouch.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/AudioRandomizer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemyParent.cs" Line="92" Column="56" />
-      <File FileName="Assets/Scripts/FlyEnemyController.cs" Line="73" Column="2" />
+      <File FileName="Assets/Scripts/EnemyParent.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FlyEnemyController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CameraFollower.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerPrefsCharacterSaver.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/VenomShotPower.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TurretEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Boss2.cs" Line="99" Column="5" />
-      <File FileName="Assets/Scripts/MosquitoEnemyController.cs" Line="27" Column="14" />
-      <File FileName="Assets/Scripts/RhinoBeetleController.cs" Line="39" Column="32" />
-      <File FileName="Assets/Scripts/TriggerInstantiateEnemyTrigger.cs" Line="22" Column="3" />
-      <File FileName="Assets/Scripts/ModifyCameraSize.cs" Line="72" Column="41" />
+      <File FileName="Assets/Scripts/TurretEnemy.cs" Line="147" Column="31" />
+      <File FileName="Assets/Scripts/Boss2.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MosquitoEnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RhinoBeetleController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TriggerInstantiateEnemyTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ModifyCameraSize.cs" Line="36" Column="3" />
       <File FileName="Assets/Scripts/Boss1.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Boss3.cs" Line="97" Column="101" />
+      <File FileName="Assets/Scripts/Boss3.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BeetleShooterEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ScorpionEnemyController.cs" Line="138" Column="101" />
+      <File FileName="Assets/Scripts/WaterBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MovingPlatform.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CaterpillarEnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BeeEnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Fish1Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FlyingShooterController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ModifyCamera.cs" Line="42" Column="4" />
+      <File FileName="Assets/Scripts/LadyBugEnemyController.cs" Line="120" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

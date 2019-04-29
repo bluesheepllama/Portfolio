@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\EnemyParent.cs" />
      <Compile Include="Assets\Scripts\FallingEnemy.cs" />
      <Compile Include="Assets\Scripts\FallOnTouch.cs" />
+     <Compile Include="Assets\Scripts\Fish1Enemy.cs" />
      <Compile Include="Assets\Scripts\FlyEnemyController.cs" />
      <Compile Include="Assets\Scripts\FlyingShooterController.cs" />
      <Compile Include="Assets\Scripts\FollowingEnemyBullet.cs" />
@@ -87,9 +88,11 @@
      <Compile Include="Assets\Scripts\MantisEnemyController.cs" />
      <Compile Include="Assets\Scripts\MiniMap.cs" />
      <Compile Include="Assets\Scripts\MissleWall.cs" />
+     <Compile Include="Assets\Scripts\ModifyCamera.cs" />
      <Compile Include="Assets\Scripts\ModifyCameraSize.cs" />
      <Compile Include="Assets\Scripts\MosquitoEnemyController.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
+     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Pickup.cs" />
      <Compile Include="Assets\Scripts\PickupGetter.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

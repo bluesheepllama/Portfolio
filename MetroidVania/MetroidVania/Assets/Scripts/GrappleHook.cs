@@ -9,7 +9,7 @@ public class GrappleHook : MonoBehaviour {
 	public LayerMask layerMask;
 	public bool grappleIsEnabled = false;
 	//public AudioSource pickUpSound;
-	//public AudioClip pickupClip;
+	//public AudioClip pickupclip;
 
 	private Rigidbody2D controlledRigidBody;
 	private LineRenderer lineRenderer;
@@ -60,7 +60,7 @@ public class GrappleHook : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast (grapplePoint.position,grapplePoint.up);
 
 		if (hit) {
-			Debug.Log ("grapple target" + hit.transform.name);
+			Debug.Log ("grapple target" + hit.transform.name + " " + hit.collider.tag);
 		}
 		//Vector3 point = new Vector3 (grapplePoint.right, grapplePoint.transform.position.y, grapplePoint.transform.position.z);
 		//target = Camera.main.ScreenToWorldPoint (grapplePoint.up);//(Input.mousePosition);// this is why
@@ -68,8 +68,20 @@ public class GrappleHook : MonoBehaviour {
 
 		target.z = transform.position.z;
 		//RaycastHit2D rayCastHit = Physics2D.Raycast (transform.position, target - transform.position, maxGrappleDistance, layerMask);
+		//RaycastHit2D rayCastHit = new RaycastHit2D();
+		//if (rayCastHit.collider.tag != "Untagged") {
 		RaycastHit2D rayCastHit = Physics2D.Raycast (transform.position, transform.up, maxGrappleDistance, layerMask); // changes grapple position
-
+		if (Input.GetKey (KeyCode.D)) { 
+				Debug.Log ("grapple diag right");
+				rayCastHit = Physics2D.Raycast (transform.position, transform.up + transform.right, maxGrappleDistance, layerMask); // changes grapple position
+			} else if (Input.GetKey (KeyCode.A)) { 
+				Debug.Log ("grapple diag left");
+				rayCastHit = Physics2D.Raycast (transform.position, transform.up - transform.right, maxGrappleDistance, layerMask); // changes grapple position
+			} 
+		//}
+		//Debug.Log ("grapple target" + rayCastHit.transform.name + " " + rayCastHit.collider.tag);
+		//if (rayCastHit.collider.tag == "Ground") {//~~~~~~~~~~~~
+			
 		if (rayCastHit.collider) {
 
 			distanceJoint.enabled = true;
@@ -84,7 +96,7 @@ public class GrappleHook : MonoBehaviour {
 		}
 
 	}
-
+	//}
 	public void ContinueGrapple () {
 		//if (isEnabled = true) {
 			lineRenderer.SetPosition (0, transform.position);

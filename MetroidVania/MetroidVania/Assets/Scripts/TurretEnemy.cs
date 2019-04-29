@@ -14,9 +14,10 @@ public class TurretEnemy : EnemyParent {
 
 	public GameObject bulletPreFab;
 	public float fireRate = .5f;
-	private float bulletSpeed = 80f;
+	public float bulletSpeed = 5f;
 	public Transform bulletSpawnPoint;
 	public Transform turret;
+	public bool isStaright = false;
 	//public Transform scorpioTransform;
 
 	private float fireTimer;
@@ -45,6 +46,7 @@ public class TurretEnemy : EnemyParent {
 
 		SpriteVelocityFlipper svf = GetComponent<SpriteVelocityFlipper> ();
 		//Debug.Log ("svf in scorpio" + svf.flip);
+
 		if (target) {
 
 
@@ -60,16 +62,27 @@ public class TurretEnemy : EnemyParent {
 				//animatorController.SetBool ("IsMoving", true);
 
 			}
-
-			if (target && bulletPreFab && bulletSpawnPoint) {
-				if (IsWithinDistance (maxSeeDistance)) {
-					fireTimer += Time.deltaTime;
-					if (fireTimer >= fireRate) {
-						Fire ();
+			if(!isStaright) {
+				if (target && bulletPreFab && bulletSpawnPoint) {
+					if (IsWithinDistance (maxSeeDistance)) {
+						fireTimer += Time.deltaTime;
+						if (fireTimer >= fireRate) {
+							Fire ();
+						}
+						turret.LookAt (target);
 					}
-					turret.LookAt (target);
 				}
-			}
+			} /*else {
+					if (target && bulletPreFab && bulletSpawnPoint) {
+						if (IsWithinDistance (maxSeeDistance)) {
+							fireTimer += Time.deltaTime;
+							if (fireTimer >= fireRate) {
+								Fire ();
+							}
+							turret.LookAt (target);
+						}
+					}
+				}*/
 
 
 
@@ -112,14 +125,38 @@ public class TurretEnemy : EnemyParent {
 	 * */
 
 	private void Fire() {
+		Quaternion quat = bulletSpawnPoint.rotation; // for shooting straight
+		quat.x = 0f;
+		quat.y = .8f;
+		quat.z = 0f;
+		quat.w = .7f;
+			
 		fireTimer = 0f;
-		GameObject bullet = Instantiate (bulletPreFab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation) as GameObject;
+		Debug.Log (bulletSpawnPoint.rotation);
+		//GameObject bullet = Instantiate (bulletPreFab,bulletSpawnPoint.position ,bulletSpawnPoint.rotation) as GameObject;
+		GameObject bullet = Instantiate (bulletPreFab) as GameObject; //,bulletSpawnPoint.position ,quat) as GameObject;
+
 		//bullet.SendMessage ("PassedValue", svf);
 		//forward and left
 		Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D> ();
-		bulletBody.velocity = bullet.transform.forward * bulletSpeed;//maybe not needed
-		//bullet.transform.LookAt(target);
+		/*if(isStaright) {
+		//rb.velocity = transform.right * transform.localScale.x * speed;
+			bulletBody.velocity = bullet.transform.forward * bulletSpeed;//maybe not needed
+		} else {
 
+			//bulletBody.velocity = bullet.transform.forward * bulletSpeed ;
+			bulletBody.velocity = (target.position - bulletPreFab.transform.position).normalized * bulletSpeed;
+
+		//bullet.transform.LookAt(target);
+		}*/
+		bullet.transform.position = transform.position;
+
+		Vector2 direction = target.transform.position - bullet.transform.position;
+		bulletBody.velocity = direction * bulletSpeed;//maybe not needed
+
+
+		//direction 
+		//bullet.GetComponent<EnemyShoot>().SetDirection(direction);
 	}
 
 	private Vector3 GetDirection() {

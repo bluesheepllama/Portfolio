@@ -89,7 +89,7 @@ public class EnemyParent : MonoBehaviour {
 		Vector2 direction =  (transform.position - collider.transform.position);
 			rigidBody.AddForce (direction * hitForce);
 		}
-		if (isFlying && collider.gameObject.tag == "Ground") {
+		if (isFlying && collider.gameObject.tag == "Ground") {//SOMETIMES WEIRD BEHAVIOR
 			Vector2 direction =  (transform.position - collider.transform.position);
 			rigidBody.AddForce (direction * (hitForceGround/2));
 		}

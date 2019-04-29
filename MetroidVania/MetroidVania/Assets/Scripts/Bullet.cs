@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 
 	public float speed = 35f;
 	public Rigidbody2D rb;
-	public float damage = 5f;
+	public float damage = 1f;
 	public GameObject impactEffect; // for bullet hit animation
 	public GameObject impactEffect2;
 	//public GameObject impactEffectPrefab;
@@ -14,6 +14,12 @@ public class Bullet : MonoBehaviour {
 	private float normalScaleX;
 	private float normalScaleY;
 	private int bounce = 0;
+
+	private float missileDmg = 5f;
+	private float GrenadeDmg = 10f;
+
+	//public static float dmgUpgradeAmount = 1.1f;
+
 
 
 
@@ -25,6 +31,18 @@ public class Bullet : MonoBehaviour {
 		impactEffect = GameObject.Find("ImpactEffect1");
 		impactEffect2 = GameObject.Find ("ImpactEffect2");
 		//shrinks bullets
+
+		damage *= playerController.bulletDmg;
+		if (playerController.scatterUpgradeAmount == 2) {
+			damage *= .82f; 
+		} else if (playerController.scatterUpgradeAmount == 3) {
+			damage *= .67f; 
+		} else if (playerController.scatterUpgradeAmount == 4) {
+			damage *= .55f; 
+		} else if (playerController.scatterUpgradeAmount == 5) {
+			damage *= .45f; 
+		}
+
 		if(playerController.isShrunk == true) {
 			//Debug.Log ("shrink bullets" );
 			gameObject.transform.localScale = tempTransform;

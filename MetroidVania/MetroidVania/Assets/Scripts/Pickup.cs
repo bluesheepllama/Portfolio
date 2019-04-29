@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PickupType {
-	Goal,
-	JumpBonus,
+	Goal, // change
+	DmgUpgrade,//JumpBonus,
 	DoubleJump,
 	JumpUpgrade, // and a temp jump bonus?
 	Money,
@@ -12,7 +12,7 @@ public enum PickupType {
 	Missile,
 	SpeedBonus,
 	GrappleHook,
-	CheckPoint,
+	GrenadePower,
 	ShrinkPower,
 	HealthUpgrade,
 	WebShotPower,
@@ -22,7 +22,10 @@ public enum PickupType {
 	VenomPower,
 	DamageUpgrade,
 	Key,
-	ChargeShot
+	ChargeShot,
+	GrenadeUpgrade,
+	GrenadeAmmo,
+	WallClimbPower
 
 }
 public class Pickup : MonoBehaviour {
@@ -53,9 +56,9 @@ public class Pickup : MonoBehaviour {
 		
 		pickupGetter.PickUp(pickupType);
 		gameObject.SetActive (false);
-		if (pickupType == PickupType.JumpBonus) {
-			Invoke ("EnableObject", 5);
-		}
+		//if (pickupType == PickupType.JumpBonus) {
+			//Invoke ("EnableObject", 5);
+		//}
 		//Destroy(gameObject);
 
 	}

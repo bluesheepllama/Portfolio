@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114738822510047324}
   - component: {fileID: 114635594960454096}
   - component: {fileID: 61591879643785346}
-  - component: {fileID: 114207013877233558}
   - component: {fileID: 58900902800877810}
   - component: {fileID: 114737269039780034}
   m_Layer: 0
@@ -58,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361561244529618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.66, y: -1.02, z: 0}
+  m_LocalPosition: {x: 3.57, y: 0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4301736809621014}
@@ -70,9 +69,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332608779479452}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -309, y: -78, z: 9.8930435}
-  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 480.5, y: -231.5, z: 9.8930435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4093436322274020}
   m_Father: {fileID: 0}
@@ -89,7 +88,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 43.528164
+  m_Mass: 30.227898
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -150,14 +149,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1332608779479452}
-  maximumHitpoints: 5
-  hitPoints: 5
+  maximumHitpoints: 15
+  hitPoints: 15
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 0}
   keyPrefab: {fileID: 0}
-  healAmountMin: 2
-  healAmountMax: 7
+  healAmountMin: 7
+  healAmountMax: 14
   isVenomDamage: 0
 --- !u!114 &114059490490949510
 MonoBehaviour:
@@ -170,41 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d354c3319027e4d9fa96d0256bf85cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
---- !u!114 &114207013877233558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332608779479452}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6c0e4040192486082a3ca9385b7ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopDistance: 3.5
-  currentMoveToPoint: {x: 0, y: 0}
-  hitForce: 0
-  isFlying: 1
-  flyingOffset: 10
-  controlledMover: {fileID: 0}
-  count: 0
-  patrolOffset: 10
-  target: {fileID: 0}
-  animator: {fileID: 0}
-  maxSeeDistance: 30
-  offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
-    type: 2}
-  fireRate: 2
-  bulletSpeed: 20
-  bulletSpawnPoint: {fileID: 4093436322274020}
-  turret: {fileID: 4093436322274020}
-  scorpioTransform: {fileID: 4301736809621014}
-  patrolPoints:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  damage: 10
 --- !u!114 &114635594960454096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,19 +197,19 @@ MonoBehaviour:
   stopDistance: 3.5
   currentMoveToPoint: {x: 0, y: 0}
   hitForce: 10000
-  isFlying: 0
-  flyingOffset: 10
+  isFlying: 1
+  flyingOffset: 20
   controlledMover: {fileID: 0}
   count: 0
   patrolOffset: 20
-  target: {fileID: 4976318357173938, guid: 415fbf68830cb4217b95f19b7ac46755, type: 2}
+  target: {fileID: 0}
   animator: {fileID: 0}
-  maxSeeDistance: 30
+  maxSeeDistance: 50
   offset: 0
-  bulletPreFab: {fileID: 1897826114516672, guid: 9ec86149790e5450897b55bd75ff6f6f,
+  bulletPreFab: {fileID: 1897826114516672, guid: 25927d43df8ea490c9c51abb7801b5e7,
     type: 2}
-  fireRate: 2
-  bulletSpeed: 20
+  fireRate: 1
+  bulletSpeed: 100
   bulletSpawnPoint: {fileID: 4093436322274020}
   turret: {fileID: 4093436322274020}
   enemyTransform: {fileID: 4301736809621014}
@@ -308,7 +273,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 21c1a25bf217d48398da21382a39ac81, type: 3}
-  m_Color: {r: 0.61764705, g: 0.0045415265, b: 0.19481558, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

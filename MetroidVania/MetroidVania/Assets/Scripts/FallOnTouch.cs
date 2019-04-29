@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallOnTouch : MonoBehaviour {
 
-	public float timeToDrop = 3f;
+	public float timeToDrop = 0.5f;
 	public float yValueRespawn = 218 ;
 
 	private float dropTimer;

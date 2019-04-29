@@ -51,7 +51,7 @@ public class Jumper : MonoBehaviour {
 		float timeSinceJumped = Time.time - lastTimeJumped;
 
 		//Debug.Log ("Jump attepted");
-		if((timeSinceJumped >= jumpDelay && IsAtRest()) || doublecount == 1 ) {// add jump delay for wall jump
+		if(((timeSinceJumped >= jumpDelay && IsAtRest())   && groundDetector.isOnGround )|| doublecount == 1 ) {// add jump delay for wall jump
 			//Debug.Log ("Jump executed");
 
 			//Rigidbody2D rb = GetComponent<Rigidbody2D> ();
@@ -80,6 +80,7 @@ public class Jumper : MonoBehaviour {
 	public bool IsAtRest()
 	{
 		if (Mathf.Abs (rb.velocity.y) < 0.25f) {
+			doublecount = 0;
 			return true;
 		}
 
