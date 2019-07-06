@@ -50,9 +50,10 @@ public class Jumper : MonoBehaviour {
 	public void Jump() {
 		float timeSinceJumped = Time.time - lastTimeJumped;
 
-		//Debug.Log ("Jump attepted");
-		if(((timeSinceJumped >= jumpDelay && IsAtRest())   && groundDetector.isOnGround )|| doublecount == 1 ) {// add jump delay for wall jump
-			//Debug.Log ("Jump executed");
+		Debug.Log ("Jump attepted" + groundDetector.isOnGround);
+
+		if(((timeSinceJumped >= jumpDelay && IsAtRest())   && groundDetector.isOnGround )|| doublecount == 1) {// add jump delay for wall jump
+			Debug.Log ("Jump executed");
 
 			//Rigidbody2D rb = GetComponent<Rigidbody2D> ();
 			rb.velocity = new Vector2 (rb.velocity.x, jumpImpulse * jumpMultiplier);//kills momentum in x

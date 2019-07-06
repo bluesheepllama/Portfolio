@@ -41,7 +41,7 @@ public class GroundDetector : MonoBehaviour {
 
 
 
-		if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "SlopedGround") {
+		if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "SlopedGround" /*|| collision.gameObject.layer == 8*/) {
 			isOnGround = true;
 			isOnFallingPlatform = false;
 
@@ -59,7 +59,7 @@ public class GroundDetector : MonoBehaviour {
 		if (IsOnGroundRay ()) {
 			isOnGround = true;
 		}else {
-				isOnGround = false;
+				//isOnGround = false; //********* causes to slide and not jump
 			}
 			
 	}
