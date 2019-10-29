@@ -26,9 +26,9 @@ GameObject:
   - component: {fileID: 114257040741813278}
   - component: {fileID: 114133056045882758}
   - component: {fileID: 114926709709965120}
-  - component: {fileID: 61669858733374388}
   - component: {fileID: 95808335761863104}
   - component: {fileID: 58051891322675178}
+  - component: {fileID: 58301629642194110}
   m_Layer: 0
   m_Name: FishPatrollerEnemy
   m_TagString: Enemy
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763731851517718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 333.4, y: 132.3, z: 9.8930435}
+  m_LocalPosition: {x: 300.9, y: 86.7, z: 9.8930435}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,7 +60,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 25.871399
+  m_Mass: 25.97785
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -84,8 +84,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -1.3363808}
   serializedVersion: 2
   m_Radius: 0.5421056
---- !u!61 &61669858733374388
-BoxCollider2D:
+--- !u!58 &58301629642194110
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -96,19 +96,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.94, y: 3.45}
-    newSize: {x: 4.94, y: 3.45}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.33766308, y: 0}
   serializedVersion: 2
-  m_Size: {x: 4.94, y: 3.45}
-  m_EdgeRadius: 0
+  m_Radius: 2.3341992
 --- !u!95 &95808335761863104
 Animator:
   serializedVersion: 3
@@ -180,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d354c3319027e4d9fa96d0256bf85cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
 --- !u!114 &114823412920036846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1763731851517718}
-  maximumHitpoints: 3
-  hitPoints: 2
+  maximumHitpoints: 12
+  hitPoints: 12
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 1733296799385722, guid: 37409f3bdcf05415cb936b154970171e,
@@ -250,8 +240,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbdfbffc1f62f4a71bd485203a65876a, type: 3}
-  m_Color: {r: 0.014705896, g: 0.0008650527, b: 0.0008650527, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 74d95c5c6e65d40a6af0c9d910fe9d10, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

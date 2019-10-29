@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 114181922956619002}
   - component: {fileID: 114855228098629500}
   m_Layer: 0
-  m_Name: BeetleShooter
+  m_Name: BeetleShooterSnow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469970541045722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.2, y: 10.6, z: 9.8930435}
+  m_LocalPosition: {x: 456.61035, y: 175.82256, z: 9.8930435}
   m_LocalScale: {x: 2.903109, y: 2.9031084, z: 2.4192572}
   m_Children:
   - {fileID: 4218402703786798}
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.01, y: 4.21}
+    oldSize: {x: 7.35, y: 3.63}
     newSize: {x: 4.94, y: 3.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -210,6 +210,9 @@ MonoBehaviour:
   healthPrefab: {fileID: 1733296799385722, guid: 3b42c527a31b44a24a0b7ca9fe837e9e,
     type: 2}
   missileAmmoPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
+  healAmountMin: 2
+  healAmountMax: 7
   isVenomDamage: 0
 --- !u!114 &114323189490851044
 MonoBehaviour:
@@ -377,8 +380,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 21c1a25bf217d48398da21382a39ac81, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4593ec4e3127749d7a4e9dfdd2e49949, type: 3}
+  m_Color: {r: 0, g: 0.95862055, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
