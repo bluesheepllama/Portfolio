@@ -1,0 +1,14 @@
+Controls:
+
+Movement: 'a' , 'd'
+Jump: space or '.'
+Shoot: right alt or '/'
+Aim up and down: 'w' and 's'
+Charge Shot: hold down shoot
+Aim Diagnol: 'e' ,'q' , 'z' , 'c' , or 'd'+'w' , 'a'+'w'
+Pause and unpause: p
+Toggle Minimap: o
+Quit: Pause then click x at top left
+
+
+Once Powerup is aquired unpause with 'p'
