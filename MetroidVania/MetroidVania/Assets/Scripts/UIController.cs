@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using BayatGames.SaveGameFree.Types;
 
+//namespace BayatGames.SaveGameFree.Examples {
 public class UIController : MonoBehaviour {
+
+		
 
 	public List<GameObject> powerUps;
 	public Text powerUpDescription;
@@ -14,6 +19,8 @@ public class UIController : MonoBehaviour {
 	public GameObject pauseUI;
 	public bool pausePressed = false;
 	public GameObject destansiateWallTriggerMsg;
+
+	public SaveGameTrigger saveTrigger;
 
 	//bullet icons
 	public GameObject missileUI;
@@ -37,14 +44,20 @@ public class UIController : MonoBehaviour {
 	public GameObject saveUI;
 	public Button yesButton;
 	public Button noButton;
+	public Button loadButton;
+
+	public GameObject loadUI;
 
 	private SoundController soundController;
 	private AudioSource songSource;
+	private SaveData savedata;
 
+	public int tempforSave = 0;
 
 	public AudioClip songClip;
 	// Use this for initialization
 	void Start () {
+		savedata = new SaveData ();
 		soundController = GetComponent<SoundController> ();
 		songSource = soundController.AddAudio (songClip,true,true,.3f);
 		//aS.volume = 100F;
@@ -65,6 +78,9 @@ public class UIController : MonoBehaviour {
 	void Update () {
 		welcomeScreenClose.onClick.AddListener (CloseWelcomeScreen);
 		exitButton.onClick.AddListener (ExitGame);
+		yesButton.onClick.AddListener (Save);
+		loadButton.onClick.AddListener (Load);
+		noButton.onClick.AddListener (NoPressed);
 		healthTotal.text = destructable.hitPoints.ToString();
 		missileTotal.text = playerController.missileCount.ToString ();
 		if (Input.GetKeyDown (KeyCode.P)) {
@@ -103,6 +119,8 @@ public class UIController : MonoBehaviour {
 		Time.timeScale = 0;
 		pausePressed = false;
 		playerController.isPaused = true;
+		saveUI.SetActive (true);
+
 	}
 
 	public void ResumeGame() {
@@ -110,6 +128,8 @@ public class UIController : MonoBehaviour {
 		Time.timeScale = 1;
 		pausePressed = true;
 		playerController.isPaused = false;
+		saveUI.SetActive (false);
+
 	}
 
 
@@ -119,9 +139,59 @@ public class UIController : MonoBehaviour {
 		Time.timeScale = 0;
 		playerController.isPaused = true;
 		if(yesButton) {
+			//use setter function from save storage data
+			savedata.hitpoints = destructable.hitPoints;
+			saveUI.SetActive(false);
+			ResumeGame ();
+			saveTrigger.isSaveTriggered = false;
+			Debug.Log ("Yes Save button pressed");
+			//SaveGame.Save<int> ( "score", score );
+			Debug.Log("Save Game: " + destructable.hitPoints);
+			SaveGame.Save<SaveData> ( "hitpoints", savedata  );
+
+
 		}
 
 	}
+	public void Load() {
+		
+		//saveUI.SetActive (true);
+		Time.timeScale = 0;
+		playerController.isPaused = true;
+			if(loadButton) {
+			//SaveGame.Save<int> ( "score", score );
+			//SceneManager.LoadScene("Scene01");
+			//Application.LoadLevel(Application.loadedLevel);
+			//use getter function to get storage data from save
+
+			//Load function needs to save to an object
+			//make a class of all data to be saved, make class then set them all equal with getter and setter functions
+			//T = SaveGame.Load<float> ( "hitpoints", destructable.hitPoints );
+			/*target.position = SaveGame.Load<Vector3Save>(
+			identifier,
+			Vector3.zero,
+			SerializerDropdown.Singleton.ActiveSerializer);*/
+			float loadTemp = 0;
+
+			savedata = SaveGame.Load<SaveData> ( "hitpoints", savedata );
+			//SceneManager.LoadScene("Scene01");
+			destructable.hitPoints = savedata.hitpoints;
+			Debug.Log ("Load Game: " + destructable.hitPoints);
+			saveTrigger.isSaveTriggered = false;
+			saveUI.SetActive (false);
+
+
+
+			}
+
+		}
+	public void NoPressed(){
+	   
+		saveUI.SetActive(false);
+		ResumeGame ();
+	}
+
+
 
 
 	public void PowerUpAquire(int i) {
@@ -166,3 +236,4 @@ public class UIController : MonoBehaviour {
 	}
 
 }
+//}

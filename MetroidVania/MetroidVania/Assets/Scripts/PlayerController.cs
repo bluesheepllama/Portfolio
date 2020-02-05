@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour {
 
 			if (CanWallClimb ()) {//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~trying to fix wall stticking 
 				controlledRigidbody.drag = 0;
-				Debug.Log ("anykey == true, apply normal drag velocity" + controlledRigidbody.velocity.x + ", " + controlledRigidbody.velocity.y);
+				//Debug.Log ("anykey == true, apply normal drag velocity" + controlledRigidbody.velocity.x + ", " + controlledRigidbody.velocity.y);
 			}
 		
 			/*if (!controlledAnimator) {

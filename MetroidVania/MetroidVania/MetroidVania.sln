@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroidVania", "Assembly-CSharp.csproj", "{CE329B9C-7C9D-3F60-0A1E-F2C3E2E74100}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroidVania", "Assembly-CSharp-Editor.csproj", "{C3BD8F6D-1403-5D48-C85C-9D7563FC8DCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{CE329B9C-7C9D-3F60-0A1E-F2C3E2E74100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE329B9C-7C9D-3F60-0A1E-F2C3E2E74100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE329B9C-7C9D-3F60-0A1E-F2C3E2E74100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BD8F6D-1403-5D48-C85C-9D7563FC8DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BD8F6D-1403-5D48-C85C-9D7563FC8DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BD8F6D-1403-5D48-C85C-9D7563FC8DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BD8F6D-1403-5D48-C85C-9D7563FC8DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

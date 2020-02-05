@@ -33,8 +33,8 @@ public class PlayerPrefsCharacterSaver : MonoBehaviour {
 			uiController.ResumeGame ();
 		}
 		*/
-				yesButton.onClick.AddListener (YesClick);
-				noButton.onClick.AddListener (NoClick);
+				//yesButton.onClick.AddListener (YesClick);
+				//noButton.onClick.AddListener (NoClick);
 
 				/*if (Input.GetKeyDown (KeyCode.S))
 				SaveCharacter (characterData, 0);
@@ -47,14 +47,14 @@ public class PlayerPrefsCharacterSaver : MonoBehaviour {
 		
 	}
 
-	private void YesClick() {
+	/*private void YesClick() {
 		SaveCharacter (characterData,0);//look into slot number
 		//tell them it saved
 		saveUI.SetActive(false);
 		uiController.ResumeGame ();
 		saveTrigger.isSaveTriggered = false;
 		Debug.Log ("Yes Save button pressed");
-	}
+	}*/
 	private void NoClick() {
 		//tell them it saved
 		saveUI.SetActive(false);
