@@ -18,3 +18,8 @@ Metroid-Vania:
 A Metroid-Vania inspired game with strong emphasis on action and exploring to find new areas and power-ups. I am in love with the genre and wanted to make see what I could add to it. Being a solo project, I have been responsible for designing every aspect from the level design to the scripting, to creating art aspects. This is by far my most ambition and most passionate project to date.
 Play the working demo here:
 https://simmer.io/@bluesheepllama/metroid-vania#.XLudmmN7ifk.email
+
+Bob's Mysteriously Secret Journey:
+A gamejam game taken over the course of 48 hour created in unity. Combining an artists H.R. Giger inspired style to my experience in Unity, we created a sureal labyrnth puzzle solving game, about finding your destiny.
+Play this game here:
+https://simmer.io/@bluesheepllama/mino-s-mysteriously-secret-journey
