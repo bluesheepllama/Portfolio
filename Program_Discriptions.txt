@@ -19,6 +19,35 @@ A Metroid-Vania inspired game with strong emphasis on action and exploring to fi
 Play the working demo here:
 https://simmer.io/@bluesheepllama/metroid-vania#.XLudmmN7ifk.email
 
+Website:
+https://mitchelldennen.carrd.co/
+
+Projects on my website:
+
+Super Space Party:
+Super Space Party - Fun Time Meme Extravaganza 69-420-Boss Explosion Mode is a casual game to take a stab at a variety of minigames to beat your highscore.
+From being a survivor of your space ship crash, you must complete various games to get the parts for your ship to find your way home.
+Different games with various objectives and challenges.
+-8 different minigames to add to your score
+-Sick custom soundtracks
+-Can you beat your highscore?
+
+Crowded:
+
+Crowded is a casual game that lets you work your way toward a promotion by guiding new interns.
+Use the joystick to move around the office. The interns will follow you. But don't let any of them get lost!
+-7 Fast-paced and exciting levels.
+-Face obstacles like dangerously jammed printers and difficult coworkers.
+-Meet a diverse and funny cast of office cohorts.
+-Fight literal boss battles.
+-Collect new interns as you win levels.
+Only you can help these interns succeed! Ready to earn a promotion?
+Crowded is designed by House Warrior Studios.
+
+Oh Apollo:
+Apollo has been cast down by Zues. Find the missing pieces of your chariot and retake your rightful place as God of the Sun, in this gamejam game made in 48 hours.
+https://npeck.itch.io/ohapollo
+
 Bob's Mysteriously Secret Journey:
 A gamejam game taken over the course of 48 hour created in unity. Combining an artists H.R. Giger inspired style to my experience in Unity, we created a sureal labyrnth puzzle solving game, about finding your destiny.
 Play this game here:
